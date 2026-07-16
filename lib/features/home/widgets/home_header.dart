@@ -9,152 +9,100 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(
-        left: 18,
-        right: 18,
-        top: 18,
-        bottom: 26,
-      ),
-      decoration: const BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(28),
-          bottomRight: Radius.circular(28),
-        ),
-      ),
+      width: double.infinity,
+      padding: EdgeInsets.all(10),
+      decoration: const BoxDecoration(color: Color(0XFFa91145)),
       child: Column(
         children: [
-
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Text(
+              'பிறப்புக்கும் எல்லா உயிர்க்கும்',
+              style: TextStyle(
+                color: Colors.yellow,
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
           Row(
             children: [
-
-              const CircleAvatar(
-                radius: 22,
-                backgroundColor: Colors.white,
-                child: Text(
-                  "V",
-                  style: TextStyle(
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-
-              const SizedBox(width: 12),
-
+              /// 30%
               Expanded(
-                child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                  children: const [
-
-                    Text(
-                      "வணக்கம்",
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 13,
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    padding: const EdgeInsets.all(
+                      3,
+                    ), // Space between border and avatar
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.yellow, width: 3),
+                    ),
+                    child: const CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: Text(
+                        "A",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0XFFa91145),
+                        ),
                       ),
-                    ),
-
-                    SizedBox(height: 2),
-
-                    Text(
-                      "Thiru. M.K. Stalin",
-                      style: AppTextStyles.title,
-                    ),
-
-                  ],
-                ),
-              ),
-
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(.15),
-                  borderRadius:
-                      BorderRadius.circular(12),
-                ),
-                child: const Icon(
-                  Icons.notifications_none,
-                  color: Colors.white,
-                ),
-              ),
-
-            ],
-          ),
-
-          const SizedBox(height: 22),
-
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.08),
-              borderRadius:
-                  BorderRadius.circular(20),
-            ),
-            child: Row(
-              children: [
-
-                const CircleAvatar(
-                  radius: 34,
-                  backgroundColor: Colors.white,
-                  child: Text(
-                    "AP",
-                    style: TextStyle(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
                     ),
                   ),
                 ),
+              ),
 
-                const SizedBox(width: 16),
-
-                Expanded(
+              /// 70%
+              Expanded(
+                flex: 3,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-
                       Text(
-                        "Welcome Back",
+                        "ARUL PRAKASAM",
                         style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 13,
-                        ),
-                      ),
-
-                      SizedBox(height: 4),
-
-                      Text(
-                        "Hon. Chief Minister",
-                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w900,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
                         ),
                       ),
 
                       SizedBox(height: 4),
 
-                      Text(
-                        "Government of Tamil Nadu",
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 12,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            "TVK MLA",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            "Saidapet (AC 23)",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
-
                     ],
                   ),
                 ),
-
-              ],
-            ),
+              ),
+            ],
           ),
-
         ],
       ),
     );
