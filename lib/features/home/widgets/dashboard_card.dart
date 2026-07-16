@@ -1,69 +1,189 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/app_colors.dart';
-import 'stat_card.dart';
-
 class DashboardCard extends StatelessWidget {
   const DashboardCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
-        boxShadow: const [BoxShadow(blurRadius: 12, color: Colors.black12)],
-      ),
+      margin: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: const [
-              Icon(Icons.dashboard_customize, color: AppColors.primary),
+          /// Heading (Outside Black Card)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Text(
+                    "GRIEVANCE DASHBOARD",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 0.3,
+                      color: Colors.black87,
+                    ),
+                  ),
 
-              SizedBox(width: 8),
+                  const SizedBox(width: 12),
 
-              Text(
-                "Grievance Dashboard",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  Expanded(
+                    child: Container(
+                      height: 4,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFE91E63), // Pink
+                            Color(0xFFFFC107), // Yellow
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
+
+              const SizedBox(height: 12),
             ],
           ),
 
-          const SizedBox(height: 20),
+          /// Black Card
+          Container(
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              color: const Color(0xff1A1A1A),
+              borderRadius: BorderRadius.circular(22),
+              boxShadow: const [
+                // Yellow offset shadow
+                BoxShadow(
+                  color: Colors.orange,
+                  blurRadius: 0,
+                  spreadRadius: 0,
+                  offset: Offset(4, 5),
+                ),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Expanded(
-                child: StatCard(number: "1284", title: "Resolved"),
-              ),
+                // Soft black shadow
+                // BoxShadow(
+                //   color: Colors.black38,
+                //   blurRadius: 12,
+                //   offset: Offset(0, 5),
+                // ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Remove the "GRIEVANCE DASHBOARD" Text from here
+                Row(
+                  children: const [
+                    Expanded(
+                      child: _StatCard(number: "1,284", title: "RESOLVED"),
+                    ),
+                    SizedBox(width: 12),
+                    Expanded(
+                      child: _StatCard(number: "46", title: "IN PROGRESS"),
+                    ),
+                    SizedBox(width: 12),
+                    Expanded(
+                      child: _StatCard(
+                        number: "4.2d",
+                        title: "AVG.\nRESOLUTION",
+                      ),
+                    ),
+                  ],
+                ),
 
-              SizedBox(width: 12),
+                const SizedBox(height: 24),
 
-              Expanded(
-                child: StatCard(number: "46", title: "Pending"),
-              ),
-            ],
+                Row(
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        "Your ticket: Streetlight outage",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "#SDP-0148",
+                      style: TextStyle(
+                        color: Color(0xFFFFC107),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 12),
+
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: const LinearProgressIndicator(
+                    value: .72,
+                    minHeight: 6,
+                    backgroundColor: Colors.white24,
+                    valueColor: AlwaysStoppedAnimation(Color(0xFFFFC107)),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                const Text(
+                  "Forwarded to TNEB Saidapet · Expected closure 16 Jul",
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                ),
+              ],
+            ),
           ),
+        ],
+      ),
+    );
+  }
+}
 
-          const SizedBox(height: 12),
+class _StatCard extends StatelessWidget {
+  final String number;
+  final String title;
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Expanded(
-                child: StatCard(number: "16", title: "Today"),
-              ),
+  const _StatCard({required this.number, required this.title});
 
-              SizedBox(width: 12),
+  @override
+  Widget build(BuildContext context) {
+    const Color yellow = Color(0xFFFFC107);
 
-              Expanded(
-                child: StatCard(number: "4.2", title: "Avg Days"),
-              ),
-            ],
+    return Container(
+      height: 95,
+      decoration: BoxDecoration(
+        color: const Color(0xff262626),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: yellow.withOpacity(.35)),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            number,
+            style: const TextStyle(
+              color: yellow,
+              fontSize: 28,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 11,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.5,
+            ),
           ),
         ],
       ),
