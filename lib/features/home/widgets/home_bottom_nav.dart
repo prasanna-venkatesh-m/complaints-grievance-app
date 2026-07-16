@@ -14,26 +14,28 @@ class HomeBottomNav extends StatelessWidget {
       currentIndex: currentIndex,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      selectedItemColor: AppColors.primary,
+      backgroundColor: Colors.black,
+      selectedItemColor: Colors.yellow,
       unselectedItemColor: Colors.grey,
       selectedFontSize: 12,
       unselectedFontSize: 12,
       elevation: 12,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: "Home"),
+
         BottomNavigationBarItem(
-          icon: Icon(Icons.assignment_outlined),
-          label: "Complaints",
+          icon: Icon(Icons.campaign_rounded), // or Icons.report_problem_rounded
+          label: "Grievances",
         ),
+
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications_none),
-          label: "Updates",
+          icon: Icon(Icons.support_agent_rounded),
+          label: "Helpdesk",
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline),
-          label: "Profile",
-        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.person_outline),
+        //   label: "Profile",
+        // ),
       ],
     );
   }
