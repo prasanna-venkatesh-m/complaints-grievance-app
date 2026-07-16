@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/constants/app_colors.dart';
+import 'package:marquee/marquee.dart';
 
 class BreakingNews extends StatelessWidget {
   const BreakingNews({super.key});
@@ -8,51 +7,35 @@ class BreakingNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 14,
-        vertical: 12,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: const [
+      height: 40,
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+      decoration: const BoxDecoration(
+        color: Color(0XFFf2b800),
+        boxShadow: [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 8,
-          )
+          ),
         ],
       ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 5,
-            ),
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Text(
-              "LATEST",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 11,
-              ),
-            ),
-          ),
-          const SizedBox(width: 12),
-          const Expanded(
-            child: Text(
-              "New grievance tracking portal is now live.",
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-        ],
+      child: Marquee(
+        text:
+            "📢     New Water pipeline works begin in Ward 171 - Road closed. Please use alternate routes.",
+        style: const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w700,
+        ),
+        scrollAxis: Axis.horizontal,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        blankSpace: 80,
+        velocity: 40,
+        pauseAfterRound: const Duration(seconds: 1),
+        startPadding: 10,
+        accelerationDuration: const Duration(milliseconds: 500),
+        accelerationCurve: Curves.linear,
+        decelerationDuration: const Duration(milliseconds: 500),
+        decelerationCurve: Curves.easeOut,
       ),
     );
   }
