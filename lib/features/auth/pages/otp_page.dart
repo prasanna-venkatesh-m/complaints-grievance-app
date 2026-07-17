@@ -72,7 +72,7 @@ class _OtpPageState extends State<OtpPage> {
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xffd83200), Color(0xffffb300)],
+            colors: [Color(0xFFa91145), Color(0xffffb300)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
