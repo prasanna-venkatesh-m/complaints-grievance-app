@@ -3,4 +3,6 @@ class AppRoutes {
   static const signup = '/signup';
   static const home = '/home';
   static const otpPage = '/otp';
+  static const helpDesk = '/help-desk';
+  static const grievances = '/grievances';
 }
