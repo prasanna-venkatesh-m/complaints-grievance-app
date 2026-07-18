@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tvk_grievance/core/app_text_styles.dart';
-
-import '../../../core/constants/app_colors.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -15,12 +12,13 @@ class HomeHeader extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(5),
+            padding: EdgeInsets.only(bottom: 3),
             child: Text(
-              'பிறப்புக்கும் எல்லா உயிர்க்கும்',
+              'பிறப்பொக்கும் எல்லா உயிர்க்கும்',
               style: TextStyle(
+                letterSpacing: 0.7,
                 color: Colors.yellow,
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: FontWeight.w700,
               ),
             ),
