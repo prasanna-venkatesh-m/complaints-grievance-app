@@ -26,6 +26,12 @@ class _OtpPageState extends State<OtpPage> {
   void initState() {
     super.initState();
     startTimer();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        FocusScope.of(context).requestFocus(focusNodes[0]);
+      }
+    });
   }
 
   void startTimer() {
