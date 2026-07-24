@@ -144,10 +144,11 @@ class _LoginPageState extends State<LoginPage> {
                           height: 55,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: isMobileValid
-                                  ? const Color(0xffB30000)
-                                  : Colors.grey.shade400,
-                              disabledBackgroundColor: Colors.grey.shade400,
+                              backgroundColor: const Color(0xFFB30000),
+                              disabledBackgroundColor: const Color(
+                                0xFFB30000,
+                              ).withValues(alpha: 0.45),
+                              disabledForegroundColor: Colors.white54,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(7),
                               ),
