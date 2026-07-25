@@ -5,6 +5,7 @@ import 'package:tvk_grievance/features/grievance/grievance_controller.dart';
 import 'package:tvk_grievance/features/grievance/widgets/category_card.dart';
 import 'package:tvk_grievance/features/grievance/widgets/custom_drop_down_field.dart';
 import 'package:tvk_grievance/features/grievance/widgets/custom_text_area.dart';
+import 'package:tvk_grievance/features/grievance/widgets/grievance_media_section.dart';
 
 class GrievanceForm extends StatefulWidget {
   final GrievanceController controller;
@@ -172,6 +173,14 @@ class _GrievanceFormState extends State<GrievanceForm> {
               const SizedBox(height: 18),
 
               CustomTextArea(controller: descriptionController),
+
+              const SizedBox(height: 30),
+
+              const HeaderTextWidget(text: "UPLOAD EVIDENCE"),
+
+              const SizedBox(height: 18),
+
+              GrievanceMediaSection(controller: widget.controller),
 
               const SizedBox(height: 30),
 
