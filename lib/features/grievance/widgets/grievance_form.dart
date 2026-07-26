@@ -6,6 +6,7 @@ import 'package:tvk_grievance/features/grievance/widgets/category_card.dart';
 import 'package:tvk_grievance/features/grievance/widgets/custom_drop_down_field.dart';
 import 'package:tvk_grievance/features/grievance/widgets/custom_text_area.dart';
 import 'package:tvk_grievance/features/grievance/widgets/grievance_media_section.dart';
+import 'package:tvk_grievance/features/location_picker/widgets/location_map.dart';
 
 class GrievanceForm extends StatefulWidget {
   final GrievanceController controller;
@@ -166,7 +167,24 @@ class _GrievanceFormState extends State<GrievanceForm> {
                 onChanged: widget.controller.changeStreet,
               ),
 
-              const SizedBox(height: 28),
+              const SizedBox(height: 16),
+
+              SizedBox(
+                height: 450,
+                child: LocationMap(
+                  onLocationSelected: (location) {
+                    widget.controller.setLocation(location);
+
+                    showMessage(
+                      context,
+                      "Location selected successfully",
+                      true,
+                    );
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 20),
 
               const HeaderTextWidget(text: "DESCRIBE"),
 
