@@ -6,11 +6,16 @@ import 'package:tvk_grievance/features/auth/pages/signup_page.dart';
 import 'package:tvk_grievance/features/grievance/grievance_page.dart';
 import 'package:tvk_grievance/features/helpdesk/contacts.dart';
 import 'package:tvk_grievance/features/home/home_page.dart';
+import 'package:tvk_grievance/features/splash_screen/splash_screen.dart';
 
 final appRouter = GoRouter(
-  initialLocation: AppRoutes.login,
+  initialLocation: AppRoutes.splashScreen,
 
   routes: [
+    GoRoute(
+      path: AppRoutes.splashScreen,
+      builder: (_, __) => const SplashScreen(),
+    ),
     GoRoute(path: AppRoutes.login, builder: (_, __) => const LoginPage()),
 
     GoRoute(path: AppRoutes.signup, builder: (_, __) => const SignupPage()),
