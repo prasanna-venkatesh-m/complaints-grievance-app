@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../helpdesk_model.dart';
 
 class ContactCard extends StatelessWidget {
@@ -92,7 +93,7 @@ class ContactCard extends StatelessWidget {
             children: [
               _ActionButton(
                 text: "CALL",
-                icon: Icons.phone,
+                icon: FontAwesomeIcons.phone,
                 backgroundColor: const Color(0xffC2185B),
                 textColor: Colors.white,
                 onTap: () {
@@ -103,8 +104,20 @@ class ContactCard extends StatelessWidget {
               const SizedBox(height: 8),
 
               _ActionButton(
+                text: "WHATSAPP",
+                icon: FontAwesomeIcons.whatsapp,
+                backgroundColor: const Color(0xFF25D366), // WhatsApp Green
+                textColor: Colors.white,
+                onTap: () {
+                  // TODO: open WhatsApp
+                },
+              ),
+
+              const SizedBox(height: 8),
+
+              _ActionButton(
                 text: "MAP",
-                icon: Icons.location_on,
+                icon: FontAwesomeIcons.locationDot,
                 backgroundColor: Colors.white,
                 textColor: Colors.black,
                 onTap: () {
@@ -140,7 +153,7 @@ class _ActionButton extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        width: 80,
+        width: 100,
         height: 30,
         decoration: BoxDecoration(
           color: backgroundColor,
