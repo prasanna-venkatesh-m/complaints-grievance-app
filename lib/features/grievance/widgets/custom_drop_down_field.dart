@@ -35,7 +35,7 @@ class CustomDropdownField extends StatelessWidget {
         boxShadow: const [
           BoxShadow(
             color: Color(0xffffc107),
-            offset: Offset(0, 4),
+            offset: Offset(4, 4),
           ),
         ],
       ),
