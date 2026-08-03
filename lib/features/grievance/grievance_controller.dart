@@ -1,12 +1,49 @@
 import 'package:flutter/material.dart';
-
+import 'package:tvk_grievance/features/location_picker/location_picker_model.dart';
 import 'grievance_model.dart';
 import 'grievance_repository.dart';
+import '../../shared/models/media_file_model.dart';
 
 class GrievanceController extends ChangeNotifier {
   final GrievanceRepository repository;
+  double? latitude;
+  double? longitude;
+  String? address;
 
   GrievanceController(this.repository);
+
+  final List<MediaFileModel> attachments = [];
+
+  /// ==========================
+  /// MAPS
+  /// ==========================
+
+  void setLocation(LocationPickerModel location) {
+    latitude = location.latitude;
+    longitude = location.longitude;
+    address = location.address;
+
+    notifyListeners();
+  }
+
+  /// ==========================
+  /// FILES
+  /// ==========================
+
+  void addMedia(List<MediaFileModel> files) {
+    attachments.addAll(files);
+    notifyListeners();
+  }
+
+  void removeMedia(int index) {
+    attachments.removeAt(index);
+    notifyListeners();
+  }
+
+  void clearMedia() {
+    attachments.clear();
+    notifyListeners();
+  }
 
   /// ==========================
   /// TAB
