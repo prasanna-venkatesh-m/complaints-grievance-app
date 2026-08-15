@@ -1,0 +1,82 @@
+{
+  "@@locale": "ta",
+
+  "english": "ஆங்கிலம்",
+
+  "tamil": "தமிழ்",
+
+  "helloUser": "வணக்கம், {name}!",
+
+  "submit": "சமர்ப்பிக்கவும்",
+
+  "home": "முகப்பு",
+  "grievance":"குறைகள்",
+  "helpDesk":"உதவி மையம்",
+
+  "welcomeToTvk": "தவெக உங்களை வரவேற்கிறது!", 
+  "loginWithMobileNumber": "மொபைல் எண்ணில் உள்நுழையவும்", 
+  "mobileNumber": "மொபைல் எண்", 
+  "mobileNumberRequired": "மொபைல் எண்ணை உள்ளிடவும்", 
+  "invalidMobileNumber": "10 இலக்க மொபைல் எண்ணை உள்ளிடவும்", 
+  "getOtp": "OTP பெறுக", "dontHaveAccount": "கணக்கு இல்லையா? ", 
+  "register": "பதிவு செய்க",
+
+  "enterOtp": "OTP உள்ளிடவும்",
+  "enterOtpSubtitle": "உங்கள் மொபைல் எண்ணிற்கு அனுப்பப்பட்ட 6 இலக்க OTP-ஐ உள்ளிடவும்",
+  "resendOtp": "OTP மீண்டும் அனுப்பவும்",
+  "resendOtpIn": "{seconds} விநாடிகளில் OTP மீண்டும் அனுப்பலாம்",
+
+  "createYourAccount": "உங்கள் கணக்கை உருவாக்கவும்",
+  "fullName": "முழுப் பெயர்",
+  "fullNameRequired": "முழுப் பெயர் அவசியமானது",
+  "minimumThreeCharacters": "குறைந்தது 3 எழுத்துக்கள் இருக்க வேண்டும்",
+  "onlyAlphabetsAllowed": "எழுத்துக்கள் மட்டுமே அனுமதிக்கப்படும்",
+  "mobileNumber": "மொபைல் எண்",
+  "mobileNumberRequired": "மொபைல் எண் அவசியமானது",
+  "invalidMobileNumber": "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்",
+  "dateOfBirth": "பிறந்த தேதி",
+  "dateOfBirthRequired": "பிறந்த தேதி அவசியமானது",
+  "emailId": "மின்னஞ்சல் முகவரி",
+  "constituencyNumber": "தொகுதி எண்",
+  "constituencyNumberRequired": "தொகுதி எண் அவசியமானது",
+  "gender": "பாலினம்",
+  "genderRequired": "பாலினம் அவசியமானது",
+  "district": "மாவட்டம்",
+  "districtRequired": "மாவட்டம் அவசியமானது",
+  "register": "பதிவு செய்க",
+  "alreadyHaveAccount": "ஏற்கனவே கணக்கு உள்ளதா? ",
+  "login": "உள்நுழைக",
+  "male": "ஆண்",
+  "female": "பெண்",
+  "otherGender": "மற்றவை",
+
+  "grievanceDashboard": "குறைதீர்ப்பு முகப்பு",
+  "latestUpdates": "சமீபத்திய புதுப்பிப்புகள்",
+  "raiseGrievance": "குறை பதிவு",
+  "deptContacts": "துறை தொடர்புகள்",
+
+  "fileNew": "புதிய குறை",
+  "myGrievance": "எனது குறைகள்",
+
+  "chooseCategory": "பிரிவைத் தேர்ந்தெடுக்கவும்",
+  "locationDetails": "இட விவரங்கள்",
+  "ward": "வார்டு",
+  "selectWard": "வார்டைத் தேர்ந்தெடுக்கவும்",
+  "area": "பகுதி",
+  "selectArea": "பகுதியைத் தேர்ந்தெடுக்கவும்",
+  "street": "தெரு",
+  "selectStreet": "தெருவைத் தேர்ந்தெடுக்கவும்",
+  "describe": "விவரம்",
+  "describe_the_issue": "சிக்கலை விவரிக்கவும்...",
+  "uploadEvidence": "சான்றைப் பதிவேற்றவும்",
+  "grievance_registered_successfully": "குறை வெற்றிகரமாகப் பதிவு செய்யப்பட்டது",
+  "select_location_details": "தயவுசெய்து இட விவரங்களைத் தேர்ந்தெடுக்கவும்",
+  "please_choose_category": "தயவுசெய்து பிரிவைத் தேர்ந்தெடுக்கவும்",
+
+  "open": "செயலில் உள்ளவை",
+  "history": "முந்தையவை",
+  "resolved": "தீர்க்கப்பட்டது",
+
+  "statusHistories": "நிலை மற்றும் வரலாறு",
+  "callorGetDirections": "அழைக்கவும் அல்லது வழிdirections பெறவும்"
+}

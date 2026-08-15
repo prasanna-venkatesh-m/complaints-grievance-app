@@ -1,0 +1,98 @@
+{
+  "@@locale": "en",
+
+  "english": "English",
+  "@english": {
+    "description": "English language name"
+  },
+
+  "tamil": "Tamil",
+  "@tamil": {
+    "description": "Tamil language name"
+  },
+
+  "helloUser": "Hello, {name}!",
+  "@helloUser": {
+    "description": "Greeting the current user by name",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "home": "Home",
+  "grievance":"Grievances",
+  "helpDesk":"Helpdesk",
+
+  "submit": "Submit",
+
+  "welcomeToTvk": "WELCOME TO TVK",
+  "loginWithMobileNumber": "Login with Mobile number",
+  "mobileNumber": "Mobile Number",
+  "mobileNumberRequired": "Mobile number is required",
+  "invalidMobileNumber": "Enter valid 10 digit mobile number",
+  "getOtp": "Get OTP",
+  "dontHaveAccount": "Don't have an account? ",
+  "register": "Register",
+
+  
+  "enterOtp": "Enter OTP",
+  "enterOtpSubtitle": "Enter the 6 digit OTP sent to your mobile number",
+  "resendOtp": "Resend OTP",
+  "resendOtpIn": "Resend OTP in {seconds}s",
+
+  "createYourAccount": "Create your Account",
+  "fullName": "Full Name",
+  "fullNameRequired": "Full Name is required",
+  "minimumThreeCharacters": "Minimum 3 characters required",
+  "onlyAlphabetsAllowed": "Only alphabets allowed",
+  "mobileNumber": "Mobile Number",
+  "mobileNumberRequired": "Mobile number required",
+  "invalidMobileNumber": "Enter valid 10 digit mobile number",
+  "dateOfBirth": "Date of Birth",
+  "dateOfBirthRequired": "Date of Birth is required",
+  "emailId": "Email Id",
+  "constituencyNumber": "Constituency Number",
+  "constituencyNumberRequired": "Constituency number required",
+  "gender": "Gender",
+  "genderRequired":"Gender is required",
+  "district":"District",
+  "districtRequired":"District is required",
+  "register": "Register",
+  "alreadyHaveAccount": "Already have an account? ",
+  "login": "Login",
+  "male": "Male",
+  "female": "Female",
+  "otherGender": "Other",
+
+  "grievanceDashboard":"GRIEVANCE DASHBOARD",
+  "latestUpdates":"LATEST UPDATES",
+  "raiseGrievance":"Raise Grievance",
+  "deptContacts":"Dept. Contacts",
+
+  "fileNew":"File New",
+  "myGrievance":"My Grievance",
+
+  "chooseCategory":"CHOOSE CATEGORY",
+  "locationDetails":"LOCATION DETAILS",
+  "ward":"WARD",
+  "selectWard":"Select Ward",
+  "area":"AREA",
+  "selectArea":"Select Area",
+  "street":"STREET",
+  "selectStreet":"Select Street",
+  "describe":"DESCRIBE",
+  "describe_the_issue":"Describe the issue...",
+  "uploadEvidence":"UPLOAD EVIDENCE",
+  "grievance_registered_successfully":"Grievance registered successfully",
+  "select_location_details":"Please select location details",
+  "please_choose_category":"Please choose category",
+
+  "open":"OPEN",
+  "history":"HISTORY",
+  "resolved":"Resolved",
+
+  "statusHistories":"Status & Histories",
+  "callorGetDirections":"Call or Get Direction"
+}
