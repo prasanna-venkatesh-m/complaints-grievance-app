@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tvk_grievance/app/router/app_routes.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
@@ -72,6 +73,7 @@ class _OtpPageState extends State<OtpPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -91,8 +93,8 @@ class _OtpPageState extends State<OtpPage> {
                 const SizedBox(height: 80),
                 Image.asset("assets/images/tvk_logo.png", height: 100),
                 const SizedBox(height: 30),
-                const Text(
-                  "Enter OTP",
+                Text(
+                  l10n.enterOtp,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -100,8 +102,8 @@ class _OtpPageState extends State<OtpPage> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  "Enter the 6 digit OTP sent to your mobile number",
+                Text(
+                  l10n.enterOtpSubtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white70, fontSize: 13),
                 ),
@@ -173,8 +175,8 @@ class _OtpPageState extends State<OtpPage> {
                         borderRadius: BorderRadius.circular(3),
                       ),
                     ),
-                    child: const Text(
-                      "Submit",
+                    child: Text(
+                      l10n.submit,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -191,7 +193,7 @@ class _OtpPageState extends State<OtpPage> {
                       : null,
 
                   child: Text(
-                    canResend ? "Resend OTP" : "Resend OTP in ${seconds}s",
+                    canResend ? l10n.resendOtp : l10n.resendOtpIn(seconds),
                     style: TextStyle(
                       color: canResend
                           ? const Color.fromARGB(255, 99, 109, 255)
