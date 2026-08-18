@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tvk_grievance/app/router/app_routes.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -20,7 +21,6 @@ class _SignupPageState extends State<SignupPage> {
   String? selectedGender;
   String? selectedDistrict;
   bool isFormValid = false;
-  final List<String> genders = ["Male", "Female", "Other"];
 
   final List<String> districts = [
     "Chennai",
@@ -68,6 +68,7 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -79,7 +80,6 @@ class _SignupPageState extends State<SignupPage> {
             end: Alignment.bottomCenter,
           ),
         ),
-
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -93,8 +93,8 @@ class _SignupPageState extends State<SignupPage> {
                   const SizedBox(height: 60),
                   Image.asset("assets/images/tvk_logo.png", height: 100),
                   const SizedBox(height: 20),
-                  const Text(
-                    "WELCOME TO TVK",
+                  Text(
+                    l10n.welcomeToTvk,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -102,25 +102,25 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    "Create your Account",
+                  Text(
+                    l10n.createYourAccount,
                     style: TextStyle(color: Colors.white70, fontSize: 12),
                   ),
                   const SizedBox(height: 15),
                   inputField(
                     Icons.person_outline,
-                    "Full Name",
+                    l10n.fullName,
                     required: true,
                     controller: fullNameController,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return "Full Name is required";
+                        return l10n.fullNameRequired;
                       }
                       if (value.trim().length < 3) {
-                        return "Minimum 3 characters required";
+                        return l10n.minimumThreeCharacters;
                       }
                       if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
-                        return "Only alphabets allowed";
+                        return l10n.onlyAlphabetsAllowed;
                       }
                       return null;
                     },
@@ -128,16 +128,16 @@ class _SignupPageState extends State<SignupPage> {
 
                   inputField(
                     Icons.phone_android,
-                    "Mobile Number",
+                    l10n.mobileNumber,
                     required: true,
                     keyboard: TextInputType.phone,
                     controller: mobileController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Mobile number required";
+                        return l10n.mobileNumberRequired;
                       }
                       if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
-                        return "Enter valid 10 digit mobile number";
+                        return l10n.invalidMobileNumber;
                       }
                       return null;
                     },
@@ -150,7 +150,7 @@ class _SignupPageState extends State<SignupPage> {
                         controller: dobController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Date of Birth is required";
+                            return l10n.dateOfBirthRequired;
                           }
                           return null;
                         },
@@ -162,7 +162,7 @@ class _SignupPageState extends State<SignupPage> {
                             color: Colors.grey,
                             size: 20,
                           ),
-                          hintText: "Date of Birth *",
+                          hintText: "${l10n.dateOfBirth} *",
                           hintStyle: const TextStyle(
                             color: Colors.grey,
                             fontSize: 13,
@@ -181,23 +181,23 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  genderDropdown(),
+                  genderDropdown(l10n),
                   const SizedBox(height: 10),
                   inputField(
                     Icons.email_outlined,
-                    "Email Id",
+                    l10n.emailId,
                     controller: emailController,
                   ),
-                  searchableDistrictDropdown(),
+                  searchableDistrictDropdown(l10n),
                   const SizedBox(height: 10),
                   inputField(
                     Icons.account_circle_outlined,
-                    "Constituency Number",
+                    l10n.constituencyNumber,
                     required: true,
                     controller: constituencyController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "Constituency number required";
+                        return l10n.constituencyNumberRequired;
                       }
                       return null;
                     },
@@ -226,9 +226,9 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
 
-                      child: const Text( 
-                        "Register",
-                        style: TextStyle(
+                      child: Text(
+                        l10n.register,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -240,7 +240,7 @@ class _SignupPageState extends State<SignupPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account? ",
+                        l10n.alreadyHaveAccount,
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       GestureDetector(
@@ -248,7 +248,7 @@ class _SignupPageState extends State<SignupPage> {
                           context.push(AppRoutes.login);
                         },
                         child: Text(
-                          "Login",
+                          l10n.login,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -308,11 +308,16 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  Widget genderDropdown() {
+  Widget genderDropdown(AppLocalizations l10n) {
+    final genders = {
+      "Male": l10n.male,
+      "Female": l10n.female,
+      "Other": l10n.otherGender,
+    };
     return FormField<String>(
       validator: (value) {
         if (selectedGender == null) {
-          return "Gender is required";
+          return l10n.genderRequired;
         }
         return null;
       },
@@ -340,15 +345,15 @@ class _SignupPageState extends State<SignupPage> {
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
                         value: selectedGender,
-                        hint: const Text(
-                          "Gender *",
+                        hint: Text(
+                          "${l10n.gender} *",
                           style: TextStyle(color: Colors.grey, fontSize: 13),
                         ),
                         isExpanded: true,
-                        items: genders.map((gender) {
-                          return DropdownMenuItem(
-                            value: gender,
-                            child: Text(gender),
+                        items: genders.entries.map((entry) {
+                          return DropdownMenuItem<String>(
+                            value: entry.key,
+                            child: Text(entry.value),
                           );
                         }).toList(),
                         onChanged: (value) {
@@ -384,11 +389,11 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  Widget searchableDistrictDropdown() {
+  Widget searchableDistrictDropdown(AppLocalizations l10n) {
     return FormField<String>(
       validator: (value) {
         if (selectedDistrict == null) {
-          return "District is required";
+          return l10n.districtRequired;
         }
         return null;
       },
@@ -430,7 +435,7 @@ class _SignupPageState extends State<SignupPage> {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        selectedDistrict ?? "District *",
+                        selectedDistrict ?? "${l10n.district} *",
                         style: TextStyle(
                           color: selectedDistrict == null
                               ? Colors.grey
