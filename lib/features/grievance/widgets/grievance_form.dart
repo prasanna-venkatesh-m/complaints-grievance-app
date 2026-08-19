@@ -7,6 +7,7 @@ import 'package:tvk_grievance/features/grievance/widgets/custom_drop_down_field.
 import 'package:tvk_grievance/features/grievance/widgets/custom_text_area.dart';
 import 'package:tvk_grievance/features/grievance/widgets/grievance_media_section.dart';
 import 'package:tvk_grievance/features/location_picker/widgets/location_map.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class GrievanceForm extends StatefulWidget {
   final GrievanceController controller;
@@ -77,6 +78,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return AnimatedBuilder(
       animation: widget.controller,
 
@@ -88,7 +90,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              const HeaderTextWidget(text: "CHOOSE CATEGORY"),
+              HeaderTextWidget(text: l10n.chooseCategory),
 
               const SizedBox(height: 18),
 
@@ -123,16 +125,16 @@ class _GrievanceFormState extends State<GrievanceForm> {
 
               const SizedBox(height: 28),
 
-              const HeaderTextWidget(text: "LOCATION DETAILS"),
+              HeaderTextWidget(text: l10n.locationDetails),
 
               const SizedBox(height: 18),
 
               CustomDropdownField(
-                label: "WARD",
+                label: l10n.ward,
 
                 value: widget.controller.selectedWard,
 
-                hint: "Select Ward",
+                hint: l10n.selectWard,
 
                 items: widget.controller.wards,
 
@@ -142,11 +144,11 @@ class _GrievanceFormState extends State<GrievanceForm> {
               const SizedBox(height: 16),
 
               CustomDropdownField(
-                label: "AREA",
+                label: l10n.area,
 
                 value: widget.controller.selectedArea,
 
-                hint: "Select Area",
+                hint: l10n.selectArea,
 
                 items: widget.controller.areas,
 
@@ -156,11 +158,11 @@ class _GrievanceFormState extends State<GrievanceForm> {
               const SizedBox(height: 16),
 
               CustomDropdownField(
-                label: "STREET",
+                label: l10n.street,
 
                 value: widget.controller.selectedStreet,
 
-                hint: "Select Street",
+                hint: l10n.selectStreet,
 
                 items: widget.controller.streets,
 
@@ -186,7 +188,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
 
               const SizedBox(height: 20),
 
-              const HeaderTextWidget(text: "DESCRIBE"),
+              HeaderTextWidget(text: l10n.describe),
 
               const SizedBox(height: 18),
 
@@ -194,7 +196,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
 
               const SizedBox(height: 30),
 
-              const HeaderTextWidget(text: "UPLOAD EVIDENCE"),
+              HeaderTextWidget(text: l10n.uploadEvidence),
 
               const SizedBox(height: 18),
 
@@ -223,7 +225,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (widget.controller.selectedCategory == null) {
-                        showMessage(context, "Please choose category", false);
+                        showMessage(context, l10n.please_choose_category, false);
 
                         return;
                       }
@@ -234,7 +236,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
                         showMessage(
                           context,
 
-                          "Please select location details",
+                          l10n.select_location_details,
 
                           false,
                         );
@@ -246,7 +248,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
 
                       showMessage(
                         context,
-                        "Grievance registered successfully",
+                        l10n.grievance_registered_successfully,
                         true,
                       );
                     },
@@ -263,8 +265,8 @@ class _GrievanceFormState extends State<GrievanceForm> {
                       ),
                     ),
 
-                    child: const Text(
-                      "SUBMIT",
+                    child: Text(
+                      l10n.submit,
 
                       style: TextStyle(
                         color: Colors.white,
