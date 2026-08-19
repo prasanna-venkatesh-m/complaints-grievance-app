@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class HomeBottomNav extends StatelessWidget {
   final int currentIndex;
@@ -20,6 +21,7 @@ class HomeBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       height: 75,
 
@@ -59,19 +61,19 @@ class HomeBottomNav extends StatelessWidget {
 
                   _navItem(
                     icon: FontAwesomeIcons.house,
-                    label: "Home",
+                    label: l10n.home,
                     index: 0,
                   ),
 
                   _navItem(
                     icon: FontAwesomeIcons.fileCircleExclamation,
-                    label: "Grievances",
+                    label: l10n.grievance,
                     index: 1,
                   ),
 
                   _navItem(
                     icon: FontAwesomeIcons.headset,
-                    label: "Helpdesk",
+                    label: l10n.helpDesk,
                     index: 2,
                   ),
 
