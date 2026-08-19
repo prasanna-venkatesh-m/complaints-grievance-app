@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class CustomTextArea extends StatelessWidget {
   final TextEditingController controller;
@@ -10,6 +11,7 @@ class CustomTextArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       height: 140,
       decoration: BoxDecoration(
@@ -30,8 +32,8 @@ class CustomTextArea extends StatelessWidget {
         controller: controller,
         maxLines: null,
         expands: true,
-        decoration: const InputDecoration(
-          hintText: "Describe the issue...",
+        decoration: InputDecoration(
+          hintText: l10n.describe_the_issue,
           border: InputBorder.none,
           contentPadding: EdgeInsets.all(18),
         ),
