@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class GrievanceHeader extends StatelessWidget {
   const GrievanceHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(10),
@@ -47,9 +49,9 @@ class GrievanceHeader extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        "Grievance • புகார்",
+                        l10n.grievance,
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w900,
@@ -62,7 +64,7 @@ class GrievanceHeader extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Status & Histories",
+                            l10n.statusHistories,
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 14,
@@ -71,7 +73,7 @@ class GrievanceHeader extends StatelessWidget {
                           ),
                           SizedBox(width: 8),
                           Text(
-                            "2 Open • 5 Resolved",
+                            "2 ${l10n.open} • 5 ${l10n.resolved}",
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 14,
