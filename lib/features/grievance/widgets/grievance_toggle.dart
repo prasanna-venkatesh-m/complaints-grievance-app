@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tvk_grievance/features/grievance/grievance_model.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class GrievanceToggle extends StatelessWidget {
   final GrievanceTab selectedTab;
@@ -13,6 +14,7 @@ class GrievanceToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       height: 46,
       margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -33,7 +35,7 @@ class GrievanceToggle extends StatelessWidget {
         children: [
           Expanded(
             child: _item(
-              title: "File new",
+              title: l10n.fileNew,
               selected: selectedTab == GrievanceTab.fileNew,
               onTap: () => onChanged(GrievanceTab.fileNew),
               emoji: "📝",
@@ -41,7 +43,7 @@ class GrievanceToggle extends StatelessWidget {
           ),
           Expanded(
             child: _item(
-              title: "My grievances",
+              title: l10n.myGrievance,
               selected: selectedTab == GrievanceTab.myGrievances,
               onTap: () => onChanged(GrievanceTab.myGrievances),
               emoji: "📋",
