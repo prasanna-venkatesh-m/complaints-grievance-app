@@ -6,26 +6,29 @@ class HomeRepository {
 
   HomeRepository(this.remoteDataSource);
 
-  List<DashboardStat> dashboardStats() {
-    return [
-      DashboardStat(
-        title: 'Resolved',
-        value: '1,284',
-      ),
-      DashboardStat(
-        title: 'In Progress',
-        value: '46',
-      ),
-      DashboardStat(
-        title: 'Avg Resolution',
-        value: '4.2d',
-      ),
-    ];
+  // =======================
+  // DASHBOARD
+  // =======================
+
+  Future<DashboardData> getDashboard({
+    required String userId,
+  }) {
+    return remoteDataSource.getDashboard(
+      userId: userId,
+    );
   }
+
+  // =======================
+  // ACTIVE ALERTS
+  // =======================
 
   Future<List<Alert>> getActiveAlerts() {
     return remoteDataSource.getActiveAlerts();
   }
+
+  // =======================
+  // LATEST CONTENT
+  // =======================
 
   Future<List<Content>> getLatestContents({
     int limit = 5,

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
@@ -8,23 +9,63 @@ import 'home_repository.dart';
 
 final homeRemoteDataSourceProvider =
     Provider<HomeRemoteDataSource>((ref) {
-  final apiClient = ref.read(apiClientProvider);
+  debugPrint(
+    'HOME PROVIDER: Creating HomeRemoteDataSource',
+  );
 
-  return HomeRemoteDataSource(apiClient);
+  final apiClient = ref.read(
+    apiClientProvider,
+  );
+
+  debugPrint(
+    'HOME PROVIDER: apiClient obtained',
+  );
+
+  return HomeRemoteDataSource(
+    apiClient,
+  );
 });
 
 final homeRepositoryProvider =
     Provider<HomeRepository>((ref) {
-  final remoteDataSource =
-      ref.read(homeRemoteDataSourceProvider);
+  debugPrint(
+    'HOME PROVIDER: Creating HomeRepository',
+  );
 
-  return HomeRepository(remoteDataSource);
+  final remoteDataSource = ref.read(
+    homeRemoteDataSourceProvider,
+  );
+
+  debugPrint(
+    'HOME PROVIDER: remoteDataSource obtained',
+  );
+
+  return HomeRepository(
+    remoteDataSource,
+  );
 });
 
 final homeControllerProvider =
     ChangeNotifierProvider<HomeController>((ref) {
-  final repository =
-      ref.read(homeRepositoryProvider);
+  debugPrint(
+    'HOME PROVIDER: Creating HomeController',
+  );
 
-  return HomeController(repository);
+  final repository = ref.read(
+    homeRepositoryProvider,
+  );
+
+  debugPrint(
+    'HOME PROVIDER: repository obtained',
+  );
+
+  final controller = HomeController(
+    repository,
+  );
+
+  debugPrint(
+    'HOME PROVIDER: HomeController CREATED',
+  );
+
+  return controller;
 });

@@ -9,9 +9,80 @@ class HomeRemoteDataSource {
 
   HomeRemoteDataSource(this.apiClient);
 
+  // =======================
+  // DASHBOARD
+  // =======================
+
+  Future<DashboardData> getDashboard({
+    required String userId,
+  }) async {
+    try {
+      debugPrint(
+        'HOME API: GET dashboard/$userId',
+      );
+
+      final Response<dynamic> response =
+          await apiClient.get<dynamic>(
+        'dashboard/$userId',
+      );
+
+      debugPrint(
+        'HOME API: dashboard status=${response.statusCode}',
+      );
+
+      debugPrint(
+        'HOME API: dashboard response=${response.data}',
+      );
+
+      final data = response.data;
+
+      if (data is! Map) {
+        throw const HomeApiException(
+          'Invalid dashboard response.',
+        );
+      }
+
+      final rawData = data['data'];
+
+      if (rawData is! Map) {
+        throw const HomeApiException(
+          'Invalid dashboard data.',
+        );
+      }
+
+      return DashboardData.fromJson(
+        Map<String, dynamic>.from(rawData),
+      );
+    } on DioException catch (error) {
+      debugPrint(
+        'HOME API: dashboard DioException=${error.message}',
+      );
+
+      throw HomeApiException(
+        _mapDioError(error),
+      );
+    } on HomeApiException {
+      rethrow;
+    } catch (error) {
+      debugPrint(
+        'HOME API: dashboard exception=$error',
+      );
+
+      throw const HomeApiException(
+        'Unable to load dashboard.',
+      );
+    }
+  }
+
+  // =======================
+  // ACTIVE ALERTS
+  // =======================
+
   Future<List<Alert>> getActiveAlerts() async {
     try {
-      debugPrint('HOME API: GET alert');
+      debugPrint(
+        'HOME API: GET alert',
+      );
 
       final Response<dynamic> response =
           await apiClient.get<dynamic>(
@@ -71,6 +142,10 @@ class HomeRemoteDataSource {
       );
     }
   }
+
+  // =======================
+  // LATEST CONTENT
+  // =======================
 
   Future<List<Content>> getLatestContents({
     int limit = 5,
@@ -139,7 +214,13 @@ class HomeRemoteDataSource {
     }
   }
 
-  String _mapDioError(DioException error) {
+  // =======================
+  // DIO ERROR MAPPING
+  // =======================
+
+  String _mapDioError(
+    DioException error,
+  ) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
         return 'Connection timed out. Please check your internet connection.';
@@ -154,13 +235,16 @@ class HomeRemoteDataSource {
         return 'Unable to connect to the server. Please check your internet connection.';
 
       case DioExceptionType.badResponse:
-        final statusCode = error.response?.statusCode;
+        final statusCode =
+            error.response?.statusCode;
 
-        if (statusCode != null && statusCode >= 500) {
+        if (statusCode != null &&
+            statusCode >= 500) {
           return 'Server error. Please try again later.';
         }
 
-        if (statusCode == 401 || statusCode == 403) {
+        if (statusCode == 401 ||
+            statusCode == 403) {
           return 'You are not authorized to access this information.';
         }
 
@@ -185,10 +269,17 @@ class HomeRemoteDataSource {
   }
 }
 
-class HomeApiException implements Exception {
+// =======================
+// HOME API EXCEPTION
+// =======================
+
+class HomeApiException
+    implements Exception {
   final String message;
 
-  const HomeApiException(this.message);
+  const HomeApiException(
+    this.message,
+  );
 
   @override
   String toString() => message;

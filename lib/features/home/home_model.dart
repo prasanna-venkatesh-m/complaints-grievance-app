@@ -1,3 +1,7 @@
+// =======================
+// DASHBOARD STAT
+// =======================
+
 class DashboardStat {
   final String title;
   final String value;
@@ -6,6 +10,85 @@ class DashboardStat {
     required this.title,
     required this.value,
   });
+}
+
+// =======================
+// DASHBOARD
+// =======================
+
+class DashboardData {
+  final LatestGrievance? latestGrievance;
+  final int resolvedCount;
+  final double resolvedPercentage;
+  final int inProgressCount;
+
+  const DashboardData({
+    required this.latestGrievance,
+    required this.resolvedCount,
+    required this.resolvedPercentage,
+    required this.inProgressCount,
+  });
+
+  factory DashboardData.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    final latestGrievanceJson =
+        json['latestGrievance'];
+
+    return DashboardData(
+      latestGrievance:
+          latestGrievanceJson is Map
+              ? LatestGrievance.fromJson(
+                  Map<String, dynamic>.from(
+                    latestGrievanceJson,
+                  ),
+                )
+              : null,
+      resolvedCount: _toInt(
+        json['resolvedCount'],
+      ),
+      resolvedPercentage: _toDouble(
+        json['resolvedPercentage'],
+      ),
+      inProgressCount: _toInt(
+        json['inProgressCount'],
+      ),
+    );
+  }
+}
+
+// =======================
+// LATEST GRIEVANCE
+// =======================
+
+class LatestGrievance {
+  final String ticketId;
+  final String description;
+  final String latestStatus;
+  final DateTime? latestStatusTime;
+
+  const LatestGrievance({
+    required this.ticketId,
+    required this.description,
+    required this.latestStatus,
+    required this.latestStatusTime,
+  });
+
+  factory LatestGrievance.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return LatestGrievance(
+      ticketId:
+          json['TicketId']?.toString() ?? '',
+      description:
+          json['Description']?.toString() ?? '',
+      latestStatus:
+          json['LatestStatus']?.toString() ?? '',
+      latestStatusTime: _parseDate(
+        json['LatestStatusTime'],
+      ),
+    );
+  }
 }
 
 // =======================
@@ -21,7 +104,9 @@ class LocalizedText {
     this.ta = '',
   });
 
-  factory LocalizedText.fromJson(dynamic json) {
+  factory LocalizedText.fromJson(
+    dynamic json,
+  ) {
     if (json is! Map) {
       return const LocalizedText();
     }
@@ -71,9 +156,14 @@ class ContentAttachment {
       id: json['_id']?.toString() ?? '',
       type: json['Type']?.toString() ?? '',
       url: json['Url']?.toString() ?? '',
-      thumbnailUrl: json['ThumbnailUrl']?.toString() ?? '',
-      title: LocalizedText.fromJson(json['Title']),
-      sortOrder: _toInt(json['SortOrder']),
+      thumbnailUrl:
+          json['ThumbnailUrl']?.toString() ?? '',
+      title: LocalizedText.fromJson(
+        json['Title'],
+      ),
+      sortOrder: _toInt(
+        json['SortOrder'],
+      ),
     );
   }
 }
@@ -136,43 +226,70 @@ class Content {
   factory Content.fromJson(
     Map<String, dynamic> json,
   ) {
-    final attachmentsJson = json['Attachments'];
+    final attachmentsJson =
+        json['Attachments'];
 
     return Content(
       id: json['_id']?.toString() ?? '',
-      contentId: json['ContentId']?.toString() ?? '',
+      contentId:
+          json['ContentId']?.toString() ?? '',
       type: json['Type']?.toString() ?? '',
-      category: json['Category']?.toString() ?? '',
+      category:
+          json['Category']?.toString() ?? '',
       slug: json['Slug']?.toString() ?? '',
-      title: LocalizedText.fromJson(json['Title']),
-      shortDescription: LocalizedText.fromJson(
+      title: LocalizedText.fromJson(
+        json['Title'],
+      ),
+      shortDescription:
+          LocalizedText.fromJson(
         json['ShortDescription'],
       ),
-      description: LocalizedText.fromJson(
+      description:
+          LocalizedText.fromJson(
         json['Description'],
       ),
-      eventStartDate: _parseDate(json['EventStartDate']),
-      eventEndDate: _parseDate(json['EventEndDate']),
-      venue: LocalizedText.fromJson(json['Venue']),
-      address: LocalizedText.fromJson(json['Address']),
+      eventStartDate: _parseDate(
+        json['EventStartDate'],
+      ),
+      eventEndDate: _parseDate(
+        json['EventEndDate'],
+      ),
+      venue: LocalizedText.fromJson(
+        json['Venue'],
+      ),
+      address: LocalizedText.fromJson(
+        json['Address'],
+      ),
       registrationUrl: _nullableString(
         json['RegistrationUrl'],
       ),
-      attachments: attachmentsJson is List
-          ? attachmentsJson
-              .whereType<Map>()
-              .map(
-                (item) => ContentAttachment.fromJson(
-                  Map<String, dynamic>.from(item),
-                ),
-              )
-              .toList()
-          : const [],
-      publishedOn: _parseDate(json['PublishedOn']),
-      status: json['Status']?.toString() ?? '',
-      isActive: json['IsActive'] == true,
-      isDeleted: json['IsDeleted'] == true,
-      version: _toInt(json['__v']),
+      attachments:
+          attachmentsJson is List
+              ? attachmentsJson
+                  .whereType<Map>()
+                  .map(
+                    (item) =>
+                        ContentAttachment
+                            .fromJson(
+                      Map<String, dynamic>.from(
+                        item,
+                      ),
+                    ),
+                  )
+                  .toList()
+              : const [],
+      publishedOn: _parseDate(
+        json['PublishedOn'],
+      ),
+      status:
+          json['Status']?.toString() ?? '',
+      isActive:
+          json['IsActive'] == true,
+      isDeleted:
+          json['IsDeleted'] == true,
+      version: _toInt(
+        json['__v'],
+      ),
     );
   }
 
@@ -180,10 +297,17 @@ class Content {
     return attachments
         .where(
           (attachment) =>
-              attachment.type.toUpperCase() == 'IMAGE',
+              attachment.type
+                  .toUpperCase() ==
+              'IMAGE',
         )
-        .map((attachment) => attachment.url)
-        .where((url) => url.isNotEmpty)
+        .map(
+          (attachment) =>
+              attachment.url,
+        )
+        .where(
+          (url) => url.isNotEmpty,
+        )
         .toList();
   }
 
@@ -191,17 +315,29 @@ class Content {
     return attachments
         .where(
           (attachment) =>
-              attachment.type.toUpperCase() == 'VIDEO',
+              attachment.type
+                  .toUpperCase() ==
+              'VIDEO',
         )
-        .map((attachment) => attachment.url)
-        .where((url) => url.isNotEmpty)
+        .map(
+          (attachment) =>
+              attachment.url,
+        )
+        .where(
+          (url) => url.isNotEmpty,
+        )
         .toList();
   }
 
   List<String> get attachmentUrls {
     return attachments
-        .map((attachment) => attachment.url)
-        .where((url) => url.isNotEmpty)
+        .map(
+          (attachment) =>
+              attachment.url,
+        )
+        .where(
+          (url) => url.isNotEmpty,
+        )
         .toList();
   }
 }
@@ -233,9 +369,14 @@ class Alert {
       message: LocalizedText.fromJson(
         json['Message'],
       ),
-      expiresOn: _parseDate(json['ExpiresOn']),
-      isActive: json['IsActive'] == true,
-      version: _toInt(json['__v']),
+      expiresOn: _parseDate(
+        json['ExpiresOn'],
+      ),
+      isActive:
+          json['IsActive'] == true,
+      version: _toInt(
+        json['__v'],
+      ),
     );
   }
 
@@ -248,7 +389,9 @@ class Alert {
       return true;
     }
 
-    return expiresOn!.isAfter(DateTime.now());
+    return expiresOn!.isAfter(
+      DateTime.now(),
+    );
   }
 }
 
@@ -256,7 +399,9 @@ class Alert {
 // HELPERS
 // =======================
 
-DateTime? _parseDate(dynamic value) {
+DateTime? _parseDate(
+  dynamic value,
+) {
   if (value == null) {
     return null;
   }
@@ -267,10 +412,14 @@ DateTime? _parseDate(dynamic value) {
     return null;
   }
 
-  return DateTime.tryParse(stringValue);
+  return DateTime.tryParse(
+    stringValue,
+  );
 }
 
-String? _nullableString(dynamic value) {
+String? _nullableString(
+  dynamic value,
+) {
   if (value == null) {
     return null;
   }
@@ -284,10 +433,32 @@ String? _nullableString(dynamic value) {
   return stringValue;
 }
 
-int _toInt(dynamic value) {
+int _toInt(
+  dynamic value,
+) {
   if (value is int) {
     return value;
   }
 
-  return int.tryParse(value?.toString() ?? '') ?? 0;
+  return int.tryParse(
+        value?.toString() ?? '',
+      ) ??
+      0;
+}
+
+double _toDouble(
+  dynamic value,
+) {
+  if (value is double) {
+    return value;
+  }
+
+  if (value is int) {
+    return value.toDouble();
+  }
+
+  return double.tryParse(
+        value?.toString() ?? '',
+      ) ??
+      0;
 }
