@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:tvk_grievance/core/network/api_client.dart';
 
 import 'home_model.dart';
@@ -10,8 +11,19 @@ class HomeRemoteDataSource {
 
   Future<List<Alert>> getActiveAlerts() async {
     try {
-      final Response<dynamic> response = await apiClient.get<dynamic>(
+      debugPrint('HOME API: GET alert');
+
+      final Response<dynamic> response =
+          await apiClient.get<dynamic>(
         'alert',
+      );
+
+      debugPrint(
+        'HOME API: alert status=${response.statusCode}',
+      );
+
+      debugPrint(
+        'HOME API: alert response=${response.data}',
       );
 
       final data = response.data;
@@ -35,15 +47,25 @@ class HomeRemoteDataSource {
               Map<String, dynamic>.from(item),
             ),
           )
-          .where((alert) => alert.isCurrentlyActive)
+          .where(
+            (alert) => alert.isCurrentlyActive,
+          )
           .toList();
     } on DioException catch (error) {
+      debugPrint(
+        'HOME API: alert DioException=${error.message}',
+      );
+
       throw HomeApiException(
         _mapDioError(error),
       );
     } on HomeApiException {
       rethrow;
-    } catch (_) {
+    } catch (error) {
+      debugPrint(
+        'HOME API: alert exception=$error',
+      );
+
       throw const HomeApiException(
         'Unable to load alerts.',
       );
@@ -54,12 +76,24 @@ class HomeRemoteDataSource {
     int limit = 5,
   }) async {
     try {
+      debugPrint(
+        'HOME API: GET content/latest?limit=$limit',
+      );
+
       final Response<dynamic> response =
           await apiClient.get<dynamic>(
         'content/latest',
         queryParameters: {
           'limit': limit,
         },
+      );
+
+      debugPrint(
+        'HOME API: content status=${response.statusCode}',
+      );
+
+      debugPrint(
+        'HOME API: content response=${response.data}',
       );
 
       final data = response.data;
@@ -85,12 +119,20 @@ class HomeRemoteDataSource {
           )
           .toList();
     } on DioException catch (error) {
+      debugPrint(
+        'HOME API: content DioException=${error.message}',
+      );
+
       throw HomeApiException(
         _mapDioError(error),
       );
     } on HomeApiException {
       rethrow;
-    } catch (_) {
+    } catch (error) {
+      debugPrint(
+        'HOME API: content exception=$error',
+      );
+
       throw const HomeApiException(
         'Unable to load latest updates.',
       );

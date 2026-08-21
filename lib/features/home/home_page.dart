@@ -19,7 +19,9 @@ class HomePage extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    ref.watch(homeControllerProvider);
+    final controller = ref.watch(
+      homeControllerProvider,
+    );
 
     final l10n = AppLocalizations.of(context)!;
 

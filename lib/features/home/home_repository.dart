@@ -6,7 +6,6 @@ class HomeRepository {
 
   HomeRepository(this.remoteDataSource);
 
-  // Dashboard statistics intentionally remain static for now.
   List<DashboardStat> dashboardStats() {
     return [
       DashboardStat(

@@ -8,7 +8,7 @@ import 'home_repository.dart';
 
 final homeRemoteDataSourceProvider =
     Provider<HomeRemoteDataSource>((ref) {
-  final apiClient = ref.watch(apiClientProvider);
+  final apiClient = ref.read(apiClientProvider);
 
   return HomeRemoteDataSource(apiClient);
 });
@@ -16,7 +16,7 @@ final homeRemoteDataSourceProvider =
 final homeRepositoryProvider =
     Provider<HomeRepository>((ref) {
   final remoteDataSource =
-      ref.watch(homeRemoteDataSourceProvider);
+      ref.read(homeRemoteDataSourceProvider);
 
   return HomeRepository(remoteDataSource);
 });
@@ -24,7 +24,7 @@ final homeRepositoryProvider =
 final homeControllerProvider =
     ChangeNotifierProvider<HomeController>((ref) {
   final repository =
-      ref.watch(homeRepositoryProvider);
+      ref.read(homeRepositoryProvider);
 
   return HomeController(repository);
 });

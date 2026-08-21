@@ -7,7 +7,9 @@ import 'home_repository.dart';
 class HomeController extends ChangeNotifier {
   final HomeRepository repository;
 
-  HomeController(this.repository);
+  HomeController(this.repository) {
+    loadHomeData();
+  }
 
   // =======================
   // DASHBOARD STATS
@@ -62,7 +64,6 @@ class HomeController extends ChangeNotifier {
       final result = await repository.getActiveAlerts();
 
       alerts = result;
-
       alertErrorMessage = null;
     } catch (error) {
       alerts = [];
@@ -94,7 +95,6 @@ class HomeController extends ChangeNotifier {
       );
 
       contents = result;
-
       contentErrorMessage = null;
     } catch (error) {
       contents = [];
