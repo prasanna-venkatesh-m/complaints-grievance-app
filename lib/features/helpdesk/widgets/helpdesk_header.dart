@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class HelpDeskHeader extends StatelessWidget {
   const HelpDeskHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(10),
@@ -47,9 +49,9 @@ class HelpDeskHeader extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        "HELP DESK • உதவி",
+                        l10n.helpDesk,
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w900,
@@ -62,7 +64,7 @@ class HelpDeskHeader extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Call or Get Directions",
+                            l10n.callorGetDirections,
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 14,

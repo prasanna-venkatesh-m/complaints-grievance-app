@@ -1,41 +1,98 @@
 import 'grievance_model.dart';
+import 'grievance_remote_data_source.dart';
 
 class GrievanceRepository {
-  List<GrievanceModel> getGrievances() {
-    return const [
-      GrievanceModel(
-        id: "SDP-2607-0148",
-        title: "Streetlight outage — Duraisamy Nagar 2nd St.",
-        status: "In Progress",
-        rating: 0,
-        date: "Expected by 16 Jul",
-      ),
-      GrievanceModel(
-        id: "SDP-2606-0981",
-        title: "Garbage pile-up — Bazaar Road market",
-        status: "Resolved",
-        rating: 5,
-        date: "05 Jul",
-      ),
-      GrievanceModel(
-        id: "SDP-2605-0712",
-        title: "Water contamination — Ward 172",
-        status: "Resolved",
-        rating: 4,
-        date: "28 Jun",
-      ),
-    ];
+  final GrievanceRemoteDataSource remoteDataSource;
+
+  GrievanceRepository(
+    this.remoteDataSource,
+  );
+
+  // ============================================================
+  // GET LATEST GRIEVANCES
+  // ============================================================
+
+  Future<GrievanceLatestResponse>
+      getLatestGrievances({
+    required String userId,
+  }) async {
+    try {
+      return await remoteDataSource
+          .getLatestGrievances(
+        userId: userId,
+      );
+    } on GrievanceApiException {
+      rethrow;
+    } catch (_) {
+      throw const GrievanceRepositoryException(
+        'Unable to load grievances.',
+      );
+    }
   }
 
-  Future<List<String>> getWards() async {
-    return ["Ward 170", "Ward 171", "Ward 172"];
+  // ============================================================
+  // GET WARDS
+  // ============================================================
+
+  Future<List<WardModel>> getWards() async {
+    try {
+      return await remoteDataSource
+          .getWards();
+    } on GrievanceApiException {
+      rethrow;
+    } catch (_) {
+      throw const GrievanceRepositoryException(
+        'Unable to load wards.',
+      );
+    }
   }
 
-  Future<List<String>> getAreas() async {
-    return ["Duraisamy Nagar", "Ashok Nagar", "Anna Nagar"];
+  // ============================================================
+  // GET BLOB SAS
+  // ============================================================
+
+  Future<String> getBlobSas() async {
+    try {
+      return await remoteDataSource
+          .getBlobSas();
+    } on GrievanceApiException {
+      rethrow;
+    } catch (_) {
+      throw const GrievanceRepositoryException(
+        'Unable to generate upload permission.',
+      );
+    }
   }
 
-  Future<List<String>> getStreets() async {
-    return ["1st Street", "2nd Street", "3rd Street"];
+  // ============================================================
+  // POST GRIEVANCE
+  // ============================================================
+
+  Future<void> createGrievance({
+    required Map<String, dynamic> data,
+  }) async {
+    try {
+      await remoteDataSource.createGrievance(
+        data: data,
+      );
+    } on GrievanceApiException {
+      rethrow;
+    } catch (_) {
+      throw const GrievanceRepositoryException(
+        'Unable to submit grievance.',
+      );
+    }
   }
+}
+
+class GrievanceRepositoryException
+    implements Exception {
+  final String message;
+
+  const GrievanceRepositoryException(
+    this.message,
+  );
+
+  @override
+  String toString() => message;
 }

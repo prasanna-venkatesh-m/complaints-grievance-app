@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tvk_grievance/app/widgets/header_text_widget.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class DashboardCard extends StatefulWidget {
   const DashboardCard({super.key});
@@ -44,6 +45,7 @@ class _DashboardCardState extends State<DashboardCard>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return FadeTransition(
       opacity: _fadeAnimation,
       child: SlideTransition(
@@ -53,7 +55,7 @@ class _DashboardCardState extends State<DashboardCard>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderTextWidget(text: "GRIEVANCE DASHBOARD"),
+              HeaderTextWidget(text: l10n.grievanceDashboard),
               const SizedBox(height: 12),
               Container(
                 padding: const EdgeInsets.all(18),

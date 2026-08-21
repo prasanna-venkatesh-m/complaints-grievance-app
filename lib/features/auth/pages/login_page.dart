@@ -38,22 +38,14 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFa91145),
-              Color(0xffF5A623),
-              Color(0xffD84A05),
-            ],
+            colors: [Color(0xFFa91145), Color(0xffF5A623), Color(0xffD84A05)],
           ),
         ),
         child: SafeArea(
           child: Stack(
             children: [
               // Language toggle - top right corner
-              const Positioned(
-                top: 10,
-                right: 16,
-                child: LanguageButton(),
-              ),
+              const Positioned(top: 10, right: 16, child: LanguageButton()),
 
               // Login content
               Center(
@@ -176,9 +168,9 @@ class _LoginPageState extends State<LoginPage> {
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFFB30000),
-                                  disabledBackgroundColor:
-                                      const Color(0xFFB30000)
-                                          .withValues(alpha: 0.45),
+                                  disabledBackgroundColor: const Color(
+                                    0xFFB30000,
+                                  ).withValues(alpha: 0.45),
                                   disabledForegroundColor: Colors.white54,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(7),
@@ -188,7 +180,10 @@ class _LoginPageState extends State<LoginPage> {
                                 onPressed: isMobileValid
                                     ? () {
                                         if (formKey.currentState!.validate()) {
-                                          context.push(AppRoutes.otpPage);
+                                          context.push(
+                                            AppRoutes.otpPage,
+                                            extra: mobileController.text.trim(),
+                                          );
                                         }
                                       }
                                     : null,

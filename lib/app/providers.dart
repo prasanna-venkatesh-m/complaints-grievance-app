@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tvk_grievance/core/network/api_client.dart';
+import 'package:tvk_grievance/core/network/dio_provider.dart';
 
 import '../core/services/language_storage.dart';
 import '../shared/enums/app_language.dart';
@@ -46,3 +48,9 @@ class LanguageNotifier extends Notifier<AppLanguage> {
     return setLanguage(AppLanguage.tamil);
   }
 }
+
+final apiClientProvider = Provider<ApiClient>((ref) {
+  return ApiClient(
+    ref.watch(dioProvider),
+  );
+});

@@ -10,8 +10,21 @@ class HelpdeskController extends ChangeNotifier {
 
   List<HelpdeskContact> contacts = [];
 
-  void loadContacts() {
-    contacts = _repository.getContacts();
+  bool isLoading = false;
+  String? errorMessage;
+
+  Future<void> loadContacts() async {
+    isLoading = true;
+    errorMessage = null;
     notifyListeners();
+
+    try {
+      contacts = await _repository.getContacts();
+    } catch (e) {
+      errorMessage = 'Unable to load helpdesk contacts';
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
   }
 }

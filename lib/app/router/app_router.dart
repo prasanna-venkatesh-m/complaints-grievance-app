@@ -20,7 +20,14 @@ final appRouter = GoRouter(
 
     GoRoute(path: AppRoutes.signup, builder: (_, __) => const SignupPage()),
 
-    GoRoute(path: AppRoutes.otpPage, builder: (_, __) => const OtpPage()),
+    GoRoute(
+      path: AppRoutes.otpPage,
+      builder: (context, state) {
+        final mobileNumber = state.extra as String? ?? '';
+
+        return OtpPage(mobileNumber: mobileNumber);
+      },
+    ),
 
     GoRoute(path: AppRoutes.home, builder: (_, __) => HomePage()),
 

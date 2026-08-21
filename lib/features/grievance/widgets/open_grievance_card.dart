@@ -52,7 +52,7 @@ class OpenGrievanceCard extends StatelessWidget {
                 ),
               ),
               Text(
-                "#${grievance.id}",
+                "#${grievance.ticketId}",
                 style: TextStyle(
                   color: Colors.grey.shade700,
                   fontWeight: FontWeight.w600,

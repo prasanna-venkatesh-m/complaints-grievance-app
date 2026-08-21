@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:tvk_grievance/features/grievance/grievance_model.dart';
+import 'package:tvk_grievance/l10n/app_localizations.dart';
 
 class HistoryGrievanceCard extends StatelessWidget {
   final GrievanceModel grievance;
 
-  const HistoryGrievanceCard({super.key, required this.grievance});
+  const HistoryGrievanceCard({
+    super.key,
+    required this.grievance,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: Colors.black87, width: 1),
+        border: Border.all(
+          color: Colors.black87,
+          width: 1,
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(.05),
@@ -33,7 +42,10 @@ class HistoryGrievanceCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color(0xFF2E7D32),
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.white, width: 2),
+              border: Border.all(
+                color: Colors.white,
+                width: 2,
+              ),
               boxShadow: [
                 BoxShadow(
                   color: Colors.green.withOpacity(.3),
@@ -55,14 +67,12 @@ class HistoryGrievanceCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
-
                 /// Reference Number + Status
                 Row(
                   children: [
                     Expanded(
                       child: Text(
-                        "#${grievance.id}",
+                        "#${grievance.ticketId}",
                         style: TextStyle(
                           color: Colors.grey.shade700,
                           fontSize: 12,
@@ -71,7 +81,7 @@ class HistoryGrievanceCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Resolved in ${grievance.date}",
+                      "${l10n.resolved} ${grievance.date}",
                       style: TextStyle(
                         color: Colors.grey.shade600,
                         fontSize: 12,
@@ -101,7 +111,9 @@ class HistoryGrievanceCard extends StatelessWidget {
                     ...List.generate(
                       5,
                       (index) => Padding(
-                        padding: const EdgeInsets.only(right: 3),
+                        padding: const EdgeInsets.only(
+                          right: 3,
+                        ),
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
@@ -113,7 +125,7 @@ class HistoryGrievanceCard extends StatelessWidget {
                             Icon(
                               Icons.star,
                               size: 16,
-                              color: index < grievance.rating
+                              color: index < grievance.ratingValue
                                   ? Colors.amber
                                   : Colors.white,
                             ),

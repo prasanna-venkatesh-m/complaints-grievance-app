@@ -9,29 +9,108 @@ import '../grievance_model.dart';
 class GrievanceList extends StatelessWidget {
   final List<GrievanceModel> grievances;
 
-  const GrievanceList({super.key, required this.grievances});
+  final bool isLoading;
+
+  final String? errorMessage;
+
+  final VoidCallback onRetry;
+
+  const GrievanceList({
+    super.key,
+    required this.grievances,
+    required this.isLoading,
+    required this.errorMessage,
+    required this.onRetry,
+  });
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final openList = grievances.where((e) => e.status != "Resolved").toList();
 
-    final history = grievances.where((e) => e.status == "Resolved").toList();
+    // ==========================
+    // LOADING
+    // ==========================
 
-    return SingleChildScrollView(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    if (isLoading) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+        child: Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    // ==========================
+    // ERROR
+    // ==========================
+
+    if (errorMessage != null && grievances.isEmpty) {
+      return Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+        padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeaderTextWidget(text: l10n.open),
-            const SizedBox(height: 10),
-            ...openList.map((e) => OpenGrievanceCard(grievance: e)),
-            const SizedBox(height: 20),
-            HeaderTextWidget(text: l10n.history),
-            ...history.map((e) => HistoryGrievanceCard(grievance: e)),
+            const Icon(Icons.error_outline, size: 48, color: Colors.redAccent),
+            const SizedBox(height: 12),
+            Text(errorMessage!, textAlign: TextAlign.center),
+            const SizedBox(height: 16),
+            ElevatedButton(onPressed: onRetry, child: const Text('Retry')),
           ],
         ),
+      );
+    }
+
+    // ==========================
+    // DATA
+    // ==========================
+
+    final openList = grievances.where((e) => !e.isResolved).toList();
+
+    final history = grievances.where((e) => e.isResolved).toList();
+
+    // ==========================
+    // EMPTY
+    // ==========================
+
+    if (openList.isEmpty && history.isEmpty) {
+      return Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+        padding: const EdgeInsets.all(20),
+        child: const Center(
+          child: Text('No grievances found.', textAlign: TextAlign.center),
+        ),
+      );
+    }
+
+    // ==========================
+    // SUCCESS
+    // ==========================
+
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (openList.isNotEmpty) ...[
+            HeaderTextWidget(text: l10n.open),
+            const SizedBox(height: 10),
+
+            ...openList.map(
+              (grievance) => Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: OpenGrievanceCard(grievance: grievance),
+              ),
+            ),
+          ],
+
+          if (history.isNotEmpty) ...[
+            const SizedBox(height: 20),
+
+            HeaderTextWidget(text: l10n.history),
+
+            ...history.map(
+              (grievance) => HistoryGrievanceCard(grievance: grievance),
+            ),
+          ],
+        ],
       ),
     );
   }
