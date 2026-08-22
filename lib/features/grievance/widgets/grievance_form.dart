@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:tvk_grievance/app/widgets/header_text_widget.dart';
+import 'package:tvk_grievance/features/grievance/grievance_constants.dart';
 import 'package:tvk_grievance/features/grievance/grievance_controller.dart';
 import 'package:tvk_grievance/features/grievance/grievance_model.dart';
 import 'package:tvk_grievance/features/grievance/widgets/category_card.dart';
@@ -28,13 +29,6 @@ class GrievanceForm extends StatefulWidget {
 
 class _GrievanceFormState extends State<GrievanceForm> {
   final TextEditingController descriptionController = TextEditingController();
-
-  final List<(String, String)> categories = [
-    ('Water', '💧'),
-    ('Roads', '🛣️'),
-    ('Electricity', '💡'),
-    ('Sanitation', '🗑️'),
-  ];
 
   @override
   void dispose() {
@@ -162,7 +156,7 @@ class _GrievanceFormState extends State<GrievanceForm> {
               GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: categories.length,
+                itemCount: GrievanceConstants.categories.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 18,
@@ -170,9 +164,34 @@ class _GrievanceFormState extends State<GrievanceForm> {
                   childAspectRatio: 1.4,
                 ),
                 itemBuilder: (_, index) {
+                  final category = GrievanceConstants.categories[index];
+
+                  String categoryName;
+
+                  switch (category.$1) {
+                    case 'Water':
+                      categoryName = l10n.water;
+                      break;
+
+                    case 'Roads':
+                      categoryName = l10n.roads;
+                      break;
+
+                    case 'Electricity':
+                      categoryName = l10n.electricity;
+                      break;
+
+                    case 'Sanitation':
+                      categoryName = l10n.sanitation;
+                      break;
+
+                    default:
+                      categoryName = category.$1;
+                  }
+
                   return CategoryCard(
-                    title: categories[index].$1,
-                    emoji: categories[index].$2,
+                    title: categoryName,
+                    emoji: category.$2,
                     selected: widget.controller.selectedCategory == index,
                     onTap: () {
                       widget.controller.selectCategory(index);
