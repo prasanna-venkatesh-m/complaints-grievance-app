@@ -77,6 +77,22 @@
   "history": "முந்தையவை",
   "resolved": "தீர்க்கப்பட்டது",
 
+  "inProgress": "செயல்பாட்டில்",
+  "ticket": "புகார்",
+  "status": "நிலை",
+  "latestGrievance": "சமீபத்திய புகார்",
+  "unknown": "தெரியவில்லை",
+  "noDashboardDataAvailable": "புகார் பலகை தரவு எதுவும் கிடைக்கவில்லை.",
+  "noGrievanceSubmittedYet": "இதுவரை எந்த புகாரும் சமர்ப்பிக்கப்படவில்லை.",
+  "unableToLoadDashboard": "புகார் பலகையை ஏற்ற முடியவில்லை.",
+  "retry": "மீண்டும் முயற்சி",
+
+  "submitted": "சமர்ப்பிக்கப்பட்டது",
+  "forwarded": "முன்னனுப்பப்பட்டது",
+  "underReview": "மதிப்பாய்வில் உள்ளது",
+  "closed": "மூடப்பட்டது",
+  "rejected": "நிராகரிக்கப்பட்டது",
+
   "statusHistories": "நிலை மற்றும் வரலாறு",
   "callorGetDirections": "அழைக்கவும் அல்லது வழிdirections பெறவும்"
 }
