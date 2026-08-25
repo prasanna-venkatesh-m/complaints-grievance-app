@@ -8,6 +8,7 @@ import 'package:tvk_grievance/shared/models/media_file_model.dart';
 
 import 'grievance_model.dart';
 import 'grievance_repository.dart';
+import 'grievance_constants.dart';
 
 class GrievanceController extends ChangeNotifier {
   final GrievanceRepository repository;
@@ -115,7 +116,9 @@ class GrievanceController extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final response = await repository.getLatestGrievances(userId: userId);
+      final response = await repository.getLatestGrievances(
+        userId: userId,
+      );
 
       openGrievances = response.latestOpen;
       resolvedGrievances = response.recentResolved;
@@ -128,7 +131,9 @@ class GrievanceController extends ChangeNotifier {
     }
   }
 
-  Future<void> refreshGrievances({required String userId}) {
+  Future<void> refreshGrievances({
+    required String userId,
+  }) {
     return loadGrievances(userId: userId);
   }
 
@@ -155,7 +160,9 @@ class GrievanceController extends ChangeNotifier {
         description: description,
       );
 
-      await repository.createGrievance(data: payload);
+      await repository.createGrievance(
+        data: payload,
+      );
 
       return true;
     } catch (error) {
@@ -178,22 +185,34 @@ class GrievanceController extends ChangeNotifier {
   }) {
     final now = DateTime.now();
 
-    final dueDate = now.add(const Duration(days: 3));
+    final dueDate = now.add(
+      const Duration(days: 3),
+    );
+
+    // Get selected category from the selected index.
+    final issueCategory =
+        selectedCategory != null &&
+                selectedCategory! >= 0 &&
+                selectedCategory! <
+                    GrievanceConstants.categories.length
+            ? GrievanceConstants.categories[selectedCategory!].$1
+            : '';
 
     return {
       'TicketId': _generateTicketId(),
 
-      // STATIC
-      'IssueCategory': 'Street Light',
+      // SELECTED CATEGORY
+      // Water / Roads / Electricity / Sanitation
+      'IssueCategory': issueCategory,
 
       // STATIC
-      'Department': 'General Department',
+      'Department': GrievanceConstants.department,
 
       // STATIC
-      'Priority': 'HIGH',
+      'Priority': GrievanceConstants.priority,
 
       // STATIC
-      'Source': 'MOBILE_APP',
+      'Source': GrievanceConstants.source,
 
       'Description': description.trim(),
 
