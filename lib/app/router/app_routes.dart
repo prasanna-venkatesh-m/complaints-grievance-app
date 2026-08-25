@@ -6,4 +6,5 @@ class AppRoutes {
   static const otpPage = '/otp';
   static const helpDesk = '/help-desk';
   static const grievances = '/grievances';
+  static const String contentDetails = '/content-details';
 }
