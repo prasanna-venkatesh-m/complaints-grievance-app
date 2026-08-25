@@ -153,48 +153,51 @@ class _GrievanceFormState extends State<GrievanceForm> {
 
               const SizedBox(height: 18),
 
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: GrievanceConstants.categories.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 18,
-                  mainAxisSpacing: 18,
-                  childAspectRatio: 1.4,
-                ),
-                itemBuilder: (_, index) {
-                  final category = GrievanceConstants.categories[index];
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final width = constraints.maxWidth;
 
-                  String categoryName;
+                  final crossAxisCount = width < 500
+                      ? 2
+                      : width < 750
+                      ? 3
+                      : 4;
 
-                  switch (category.$1) {
-                    case 'Water':
-                      categoryName = l10n.water;
-                      break;
+                  const spacing = 18.0;
 
-                    case 'Roads':
-                      categoryName = l10n.roads;
-                      break;
+                  return GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: GrievanceConstants.categories.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      crossAxisSpacing: spacing,
+                      mainAxisSpacing: spacing,
+                      childAspectRatio: 1.4,
+                    ),
+                    itemBuilder: (_, index) {
+                      final category = GrievanceConstants.categories[index];
 
-                    case 'Electricity':
-                      categoryName = l10n.electricity;
-                      break;
+                      final categoryName = switch (category.$1) {
+                        'Water' => l10n.water,
+                        'Roads' => l10n.roads,
+                        'Electricity' => l10n.electricity,
+                        'Sanitation' => l10n.sanitation,
+                        'Public Services' => l10n.publicServices,
+                        'Housing & Welfare' => l10n.housingWelfare,
+                        'Education & Healthcare' => l10n.educationHealthcare,
+                        'Other' => l10n.other,
+                        _ => category.$1,
+                      };
 
-                    case 'Sanitation':
-                      categoryName = l10n.sanitation;
-                      break;
-
-                    default:
-                      categoryName = category.$1;
-                  }
-
-                  return CategoryCard(
-                    title: categoryName,
-                    emoji: category.$2,
-                    selected: widget.controller.selectedCategory == index,
-                    onTap: () {
-                      widget.controller.selectCategory(index);
+                      return CategoryCard(
+                        title: categoryName,
+                        emoji: category.$2,
+                        selected: widget.controller.selectedCategory == index,
+                        onTap: () {
+                          widget.controller.selectCategory(index);
+                        },
+                      );
                     },
                   );
                 },
