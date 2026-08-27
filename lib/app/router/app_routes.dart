@@ -8,4 +8,5 @@ class AppRoutes {
   static const grievances = '/grievances';
   static const String contentDetails = '/content-details';
   static const String grievanceDetails = '/grievance-details';
+  static const String getAllGrievances = '/all-grievances';
 }
