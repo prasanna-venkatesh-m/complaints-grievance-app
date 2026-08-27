@@ -6,7 +6,9 @@ import 'package:tvk_grievance/features/auth/pages/otp_page.dart';
 import 'package:tvk_grievance/features/auth/pages/signup_page.dart';
 import 'package:tvk_grievance/features/content_details/content_details_page.dart';
 import 'package:tvk_grievance/features/grievance/grievance_page.dart';
+import 'package:tvk_grievance/features/grievance/widgets/grievance_list.dart';
 import 'package:tvk_grievance/features/grievance_details/grievance_details_page.dart';
+import 'package:tvk_grievance/features/grievance_list/grievance_list_page.dart';
 import 'package:tvk_grievance/features/helpdesk/contacts.dart';
 import 'package:tvk_grievance/features/home/home_page.dart';
 import 'package:tvk_grievance/features/splash_screen/splash_screen.dart';
@@ -37,6 +39,7 @@ final appRouter = GoRouter(
     GoRoute(path: AppRoutes.helpDesk, builder: (_, __) => HelpDeskPage()),
 
     GoRoute(path: AppRoutes.grievances, builder: (_, __) => GrievancePage()),
+    GoRoute(path: AppRoutes.getAllGrievances, builder: (_, __) => GrievanceListPage()),
 
     GoRoute(
       path: '${AppRoutes.contentDetails}/:contentId',
