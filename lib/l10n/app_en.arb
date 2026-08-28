@@ -22,9 +22,8 @@
   },
 
   "home": "Home",
-  "grievance":"Grievances",
-  "helpDesk":"Helpdesk",
-
+  "grievance": "Grievances",
+  "helpDesk": "Helpdesk",
   "submit": "Submit",
 
   "welcomeToTvk": "WELCOME TO TVK",
@@ -36,7 +35,6 @@
   "dontHaveAccount": "Don't have an account? ",
   "register": "Register",
 
-  
   "enterOtp": "Enter OTP",
   "enterOtpSubtitle": "Enter the 6 digit OTP sent to your mobile number",
   "resendOtp": "Resend OTP",
@@ -47,52 +45,141 @@
   "fullNameRequired": "Full Name is required",
   "minimumThreeCharacters": "Minimum 3 characters required",
   "onlyAlphabetsAllowed": "Only alphabets allowed",
-  "mobileNumber": "Mobile Number",
-  "mobileNumberRequired": "Mobile number required",
-  "invalidMobileNumber": "Enter valid 10 digit mobile number",
   "dateOfBirth": "Date of Birth",
   "dateOfBirthRequired": "Date of Birth is required",
   "emailId": "Email Id",
   "constituencyNumber": "Constituency Number",
   "constituencyNumberRequired": "Constituency number required",
   "gender": "Gender",
-  "genderRequired":"Gender is required",
-  "district":"District",
-  "districtRequired":"District is required",
-  "register": "Register",
+  "genderRequired": "Gender is required",
+  "district": "District",
+  "districtRequired": "District is required",
   "alreadyHaveAccount": "Already have an account? ",
   "login": "Login",
   "male": "Male",
   "female": "Female",
   "otherGender": "Other",
 
-  "grievanceDashboard":"GRIEVANCE DASHBOARD",
-  "latestUpdates":"LATEST UPDATES",
-  "raiseGrievance":"Raise Grievance",
-  "deptContacts":"Dept. Contacts",
+  "grievanceDashboard": "GRIEVANCE DASHBOARD",
+  "latestUpdates": "LATEST UPDATES",
+  "raiseGrievance": "Raise Grievance",
+  "deptContacts": "Dept. Contacts",
 
-  "fileNew":"File New",
-  "myGrievance":"My Grievance",
+  "fileNew": "File New",
+  "myGrievance": "My Grievance",
 
-  "chooseCategory":"CHOOSE CATEGORY",
-  "locationDetails":"LOCATION DETAILS",
-  "ward":"WARD",
-  "selectWard":"Select Ward",
-  "area":"AREA",
-  "selectArea":"Select Area",
-  "street":"STREET",
-  "selectStreet":"Select Street",
-  "describe":"DESCRIBE",
-  "describe_the_issue":"Describe the issue...",
-  "uploadEvidence":"UPLOAD EVIDENCE",
-  "grievance_registered_successfully":"Grievance registered successfully",
-  "select_location_details":"Please select location details",
-  "please_choose_category":"Please choose category",
+  "chooseCategory": "CHOOSE CATEGORY",
+  "locationDetails": "LOCATION DETAILS",
+  "ward": "WARD",
+  "selectWard": "Select Ward",
+  "area": "AREA",
+  "selectArea": "Select Area",
+  "street": "STREET",
+  "selectStreet": "Select Street",
+  "describe": "DESCRIBE",
+  "describe_the_issue": "Describe the issue...",
+  "uploadEvidence": "UPLOAD EVIDENCE",
+  "grievance_registered_successfully": "Grievance registered successfully",
+  "select_location_details": "Please select location details",
+  "please_choose_category": "Please choose category",
 
-  "open":"OPEN",
-  "history":"HISTORY",
-  "resolved":"Resolved",
+  "open": "OPEN",
+  "history": "HISTORY",
+  "resolved": "Resolved",
 
-  "statusHistories":"Status & Histories",
-  "callorGetDirections":"Call or Get Direction"
+  "inProgress": "In Progress",
+  "ticket": "Ticket",
+  "status": "Status",
+  "latestGrievance": "Latest grievance",
+  "unknown": "Unknown",
+  "noDashboardDataAvailable": "No dashboard data available.",
+  "noGrievanceSubmittedYet": "No grievance submitted yet.",
+  "unableToLoadDashboard": "Unable to load dashboard.",
+  "retry": "Retry",
+
+  "submitted": "Submitted",
+  "forwarded": "Forwarded",
+  "underReview": "Under Review",
+  "closed": "Closed",
+  "rejected": "Rejected",
+
+  "water": "Water",
+  "roads": "Roads",
+  "electricity": "Electricity",
+  "sanitation": "Sanitation",
+  "publicServices": "Public Services",
+  "housingWelfare": "Housing & Welfare",
+  "educationHealthcare": "Education & Healthcare",
+  "other": "Other",
+
+  "description": "Description",
+  "noDataAvailable": "No data available",
+  "attachments": "Attachments",
+  "postedOn": "Posted On",
+
+  "high": "HIGH",
+  "low": "LOW",
+  "medium": "MEDIUM",
+  "urgent": "URGENT",
+
+  "statusHistories": "Status & Histories",
+  "callorGetDirections": "Call or Get Directions",
+
+  "allGrievances":"All Grievances",
+  "grievanceDetails": "Grievance Details",
+  "grievanceInformation": "Grievance Information",
+  "noGrievancesAvailable": "No grievances available",
+  "issueCategory": "Issue Category",
+  "priority": "Priority",
+  "expectedResolution": "Expected Resolution",
+  "progress": "Progress",
+  "noProgressUpdates": "No progress updates available.",
+  "progressUpdate": "Progress Update",
+  "resolutionClosure": "Resolution & Closure",
+  "expectedBy": "Expected by {date}",
+  "@expectedBy": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "resolvedOnLabel": "Resolved On",
+  "resolvedOn": "Resolved on {date}",
+  "@resolvedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "resolved": "Resolved",
+  "resolution": "Resolution",
+  "resolvedBy": "Resolved By",
+  "reopenInformation": "Reopen Information",
+  "reopenCount": "Reopen Count",
+  "reopenedOn": "Reopened On",
+  "reason": "Reason",
+  "rating": "Rating",
+  "ratedOn": "Rated on {date}",
+  "@ratedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "attachment": "Attachment",
+  "unableToLoadGrievance": "Unable to load grievance.",
+  "submittedOn": "Submitted {date}",
+  "@submittedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "noDescriptionAvailable": "No description available",
+  "viewMore":"View More",
+  "allUpdates":"All Updates"
 }
