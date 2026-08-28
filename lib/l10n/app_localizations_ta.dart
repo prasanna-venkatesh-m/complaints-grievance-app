@@ -41,16 +41,16 @@ class AppLocalizationsTa extends AppLocalizations {
   String get mobileNumber => 'மொபைல் எண்';
 
   @override
-  String get mobileNumberRequired => 'மொபைல் எண் அவசியமானது';
+  String get mobileNumberRequired => 'மொபைல் எண்ணை உள்ளிடவும்';
 
   @override
-  String get invalidMobileNumber => 'சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்';
+  String get invalidMobileNumber => '10 இலக்க மொபைல் எண்ணை உள்ளிடவும்';
 
   @override
   String get getOtp => 'OTP பெறுக';
 
   @override
-  String get dontHaveAccount => 'கணக்கு இல்லையா? ';
+  String get dontHaveAccount => 'கணக்கு இல்லையா?';
 
   @override
   String get register => 'பதிவு செய்க';
@@ -114,7 +114,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get districtRequired => 'மாவட்டம் அவசியமானது';
 
   @override
-  String get alreadyHaveAccount => 'ஏற்கனவே கணக்கு உள்ளதா? ';
+  String get alreadyHaveAccount => 'ஏற்கனவே கணக்கு உள்ளதா?';
 
   @override
   String get login => 'உள்நுழைக';
@@ -200,8 +200,192 @@ class AppLocalizationsTa extends AppLocalizations {
   String get resolved => 'தீர்க்கப்பட்டது';
 
   @override
+  String get inProgress => 'செயல்பாட்டில்';
+
+  @override
+  String get ticket => 'புகார்';
+
+  @override
+  String get status => 'நிலை';
+
+  @override
+  String get latestGrievance => 'சமீபத்திய புகார்';
+
+  @override
+  String get unknown => 'தெரியவில்லை';
+
+  @override
+  String get noDashboardDataAvailable =>
+      'புகார் பலகை தரவு எதுவும் கிடைக்கவில்லை.';
+
+  @override
+  String get noGrievanceSubmittedYet =>
+      'இதுவரை எந்த புகாரும் சமர்ப்பிக்கப்படவில்லை.';
+
+  @override
+  String get unableToLoadDashboard => 'புகார் பலகையை ஏற்ற முடியவில்லை.';
+
+  @override
+  String get retry => 'மீண்டும் முயற்சி';
+
+  @override
+  String get submitted => 'சமர்ப்பிக்கப்பட்டது';
+
+  @override
+  String get forwarded => 'முன்னனுப்பப்பட்டது';
+
+  @override
+  String get underReview => 'மதிப்பாய்வில் உள்ளது';
+
+  @override
+  String get closed => 'மூடப்பட்டது';
+
+  @override
+  String get rejected => 'நிராகரிக்கப்பட்டது';
+
+  @override
+  String get water => 'தண்ணீர்';
+
+  @override
+  String get roads => 'சாலைகள்';
+
+  @override
+  String get electricity => 'மின்சாரம்';
+
+  @override
+  String get sanitation => 'சுகாதாரம்';
+
+  @override
+  String get publicServices => 'பொது சேவைகள்';
+
+  @override
+  String get housingWelfare => 'வீடு மற்றும் நலத்திட்டங்கள்';
+
+  @override
+  String get educationHealthcare => 'கல்வி மற்றும் சுகாதாரம்';
+
+  @override
+  String get other => 'மற்றவை';
+
+  @override
+  String get description => 'விளக்கம்';
+
+  @override
+  String get noDataAvailable => 'தரவு எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get attachments => 'இணைப்புகள்';
+
+  @override
+  String get postedOn => 'வெளியிடப்பட்ட தேதி';
+
+  @override
+  String get high => 'அதிகம்';
+
+  @override
+  String get low => 'குறைவு';
+
+  @override
+  String get medium => 'நடுத்தரம்';
+
+  @override
+  String get urgent => 'அவசரம்';
+
+  @override
   String get statusHistories => 'நிலை மற்றும் வரலாறு';
 
   @override
-  String get callorGetDirections => 'அழைக்கவும் அல்லது வழிdirections பெறவும்';
+  String get callorGetDirections => 'அழைக்கவும் அல்லது வழியைப் பெறவும்';
+
+  @override
+  String get allGrievances => 'அனைத்து புகார்கள்';
+
+  @override
+  String get grievanceDetails => 'குறை விவரங்கள்';
+
+  @override
+  String get grievanceInformation => 'குறை தொடர்பான தகவல்கள்';
+
+  @override
+  String get noGrievancesAvailable => 'குறைகள் எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get issueCategory => 'குறை வகை';
+
+  @override
+  String get priority => 'முன்னுரிமை';
+
+  @override
+  String get expectedResolution => 'எதிர்பார்க்கப்படும் தீர்வு';
+
+  @override
+  String get progress => 'முன்னேற்றம்';
+
+  @override
+  String get noProgressUpdates => 'முன்னேற்றப் புதுப்பிப்புகள் எதுவும் இல்லை';
+
+  @override
+  String get progressUpdate => 'முன்னேற்றப் புதுப்பிப்பு';
+
+  @override
+  String get resolutionClosure => 'தீர்வு மற்றும் நிறைவு';
+
+  @override
+  String expectedBy(String date) {
+    return '$dateக்குள் தீர்வு எதிர்பார்க்கப்படுகிறது';
+  }
+
+  @override
+  String get resolvedOnLabel => 'தீர்வு தேதி';
+
+  @override
+  String resolvedOn(String date) {
+    return '$date அன்று தீர்க்கப்பட்டது';
+  }
+
+  @override
+  String get resolution => 'தீர்வு';
+
+  @override
+  String get resolvedBy => 'தீர்வு செய்தவர்';
+
+  @override
+  String get reopenInformation => 'மீண்டும் திறந்த தகவல்கள்';
+
+  @override
+  String get reopenCount => 'மீண்டும் திறந்த எண்ணிக்கை';
+
+  @override
+  String get reopenedOn => 'மீண்டும் திறந்த தேதி';
+
+  @override
+  String get reason => 'காரணம்';
+
+  @override
+  String get rating => 'மதிப்பீடு';
+
+  @override
+  String ratedOn(String date) {
+    return '$date அன்று மதிப்பீடு செய்யப்பட்டது';
+  }
+
+  @override
+  String get attachment => 'இணைப்பு';
+
+  @override
+  String get unableToLoadGrievance => 'குறையை ஏற்ற முடியவில்லை.';
+
+  @override
+  String submittedOn(String date) {
+    return '$date அன்று சமர்ப்பிக்கப்பட்டது';
+  }
+
+  @override
+  String get noDescriptionAvailable => 'விளக்கம் எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get viewMore => 'மேலும் காண்க';
+
+  @override
+  String get allUpdates => 'அனைத்து புதுப்பிப்புகள்';
 }
