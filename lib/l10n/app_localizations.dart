@@ -161,7 +161,7 @@ abstract class AppLocalizations {
   /// No description provided for @mobileNumberRequired.
   ///
   /// In en, this message translates to:
-  /// **'Mobile number required'**
+  /// **'Mobile number is required'**
   String get mobileNumberRequired;
 
   /// No description provided for @invalidMobileNumber.
@@ -464,6 +464,186 @@ abstract class AppLocalizations {
   /// **'Resolved'**
   String get resolved;
 
+  /// No description provided for @inProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In Progress'**
+  String get inProgress;
+
+  /// No description provided for @ticket.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticket'**
+  String get ticket;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @latestGrievance.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest grievance'**
+  String get latestGrievance;
+
+  /// No description provided for @unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknown;
+
+  /// No description provided for @noDashboardDataAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No dashboard data available.'**
+  String get noDashboardDataAvailable;
+
+  /// No description provided for @noGrievanceSubmittedYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No grievance submitted yet.'**
+  String get noGrievanceSubmittedYet;
+
+  /// No description provided for @unableToLoadDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load dashboard.'**
+  String get unableToLoadDashboard;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @submitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Submitted'**
+  String get submitted;
+
+  /// No description provided for @forwarded.
+  ///
+  /// In en, this message translates to:
+  /// **'Forwarded'**
+  String get forwarded;
+
+  /// No description provided for @underReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Under Review'**
+  String get underReview;
+
+  /// No description provided for @closed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get closed;
+
+  /// No description provided for @rejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get rejected;
+
+  /// No description provided for @water.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get water;
+
+  /// No description provided for @roads.
+  ///
+  /// In en, this message translates to:
+  /// **'Roads'**
+  String get roads;
+
+  /// No description provided for @electricity.
+  ///
+  /// In en, this message translates to:
+  /// **'Electricity'**
+  String get electricity;
+
+  /// No description provided for @sanitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Sanitation'**
+  String get sanitation;
+
+  /// No description provided for @publicServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Public Services'**
+  String get publicServices;
+
+  /// No description provided for @housingWelfare.
+  ///
+  /// In en, this message translates to:
+  /// **'Housing & Welfare'**
+  String get housingWelfare;
+
+  /// No description provided for @educationHealthcare.
+  ///
+  /// In en, this message translates to:
+  /// **'Education & Healthcare'**
+  String get educationHealthcare;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @noDataAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No data available'**
+  String get noDataAvailable;
+
+  /// No description provided for @attachments.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachments'**
+  String get attachments;
+
+  /// No description provided for @postedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Posted On'**
+  String get postedOn;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'HIGH'**
+  String get high;
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'LOW'**
+  String get low;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'MEDIUM'**
+  String get medium;
+
+  /// No description provided for @urgent.
+  ///
+  /// In en, this message translates to:
+  /// **'URGENT'**
+  String get urgent;
+
   /// No description provided for @statusHistories.
   ///
   /// In en, this message translates to:
@@ -473,8 +653,176 @@ abstract class AppLocalizations {
   /// No description provided for @callorGetDirections.
   ///
   /// In en, this message translates to:
-  /// **'Call or Get Direction'**
+  /// **'Call or Get Directions'**
   String get callorGetDirections;
+
+  /// No description provided for @allGrievances.
+  ///
+  /// In en, this message translates to:
+  /// **'All Grievances'**
+  String get allGrievances;
+
+  /// No description provided for @grievanceDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Grievance Details'**
+  String get grievanceDetails;
+
+  /// No description provided for @grievanceInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Grievance Information'**
+  String get grievanceInformation;
+
+  /// No description provided for @noGrievancesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No grievances available'**
+  String get noGrievancesAvailable;
+
+  /// No description provided for @issueCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Issue Category'**
+  String get issueCategory;
+
+  /// No description provided for @priority.
+  ///
+  /// In en, this message translates to:
+  /// **'Priority'**
+  String get priority;
+
+  /// No description provided for @expectedResolution.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected Resolution'**
+  String get expectedResolution;
+
+  /// No description provided for @progress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get progress;
+
+  /// No description provided for @noProgressUpdates.
+  ///
+  /// In en, this message translates to:
+  /// **'No progress updates available.'**
+  String get noProgressUpdates;
+
+  /// No description provided for @progressUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress Update'**
+  String get progressUpdate;
+
+  /// No description provided for @resolutionClosure.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolution & Closure'**
+  String get resolutionClosure;
+
+  /// No description provided for @expectedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected by {date}'**
+  String expectedBy(String date);
+
+  /// No description provided for @resolvedOnLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolved On'**
+  String get resolvedOnLabel;
+
+  /// No description provided for @resolvedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolved on {date}'**
+  String resolvedOn(String date);
+
+  /// No description provided for @resolution.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolution'**
+  String get resolution;
+
+  /// No description provided for @resolvedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolved By'**
+  String get resolvedBy;
+
+  /// No description provided for @reopenInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Reopen Information'**
+  String get reopenInformation;
+
+  /// No description provided for @reopenCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Reopen Count'**
+  String get reopenCount;
+
+  /// No description provided for @reopenedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Reopened On'**
+  String get reopenedOn;
+
+  /// No description provided for @reason.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reason;
+
+  /// No description provided for @rating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get rating;
+
+  /// No description provided for @ratedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Rated on {date}'**
+  String ratedOn(String date);
+
+  /// No description provided for @attachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment'**
+  String get attachment;
+
+  /// No description provided for @unableToLoadGrievance.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load grievance.'**
+  String get unableToLoadGrievance;
+
+  /// No description provided for @submittedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Submitted {date}'**
+  String submittedOn(String date);
+
+  /// No description provided for @noDescriptionAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No description available'**
+  String get noDescriptionAvailable;
+
+  /// No description provided for @viewMore.
+  ///
+  /// In en, this message translates to:
+  /// **'View More'**
+  String get viewMore;
+
+  /// No description provided for @allUpdates.
+  ///
+  /// In en, this message translates to:
+  /// **'All Updates'**
+  String get allUpdates;
 }
 
 class _AppLocalizationsDelegate
