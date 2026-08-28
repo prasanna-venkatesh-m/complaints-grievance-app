@@ -41,7 +41,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mobileNumber => 'Mobile Number';
 
   @override
-  String get mobileNumberRequired => 'Mobile number required';
+  String get mobileNumberRequired => 'Mobile number is required';
 
   @override
   String get invalidMobileNumber => 'Enter valid 10 digit mobile number';
@@ -198,8 +198,190 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resolved => 'Resolved';
 
   @override
+  String get inProgress => 'In Progress';
+
+  @override
+  String get ticket => 'Ticket';
+
+  @override
+  String get status => 'Status';
+
+  @override
+  String get latestGrievance => 'Latest grievance';
+
+  @override
+  String get unknown => 'Unknown';
+
+  @override
+  String get noDashboardDataAvailable => 'No dashboard data available.';
+
+  @override
+  String get noGrievanceSubmittedYet => 'No grievance submitted yet.';
+
+  @override
+  String get unableToLoadDashboard => 'Unable to load dashboard.';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get submitted => 'Submitted';
+
+  @override
+  String get forwarded => 'Forwarded';
+
+  @override
+  String get underReview => 'Under Review';
+
+  @override
+  String get closed => 'Closed';
+
+  @override
+  String get rejected => 'Rejected';
+
+  @override
+  String get water => 'Water';
+
+  @override
+  String get roads => 'Roads';
+
+  @override
+  String get electricity => 'Electricity';
+
+  @override
+  String get sanitation => 'Sanitation';
+
+  @override
+  String get publicServices => 'Public Services';
+
+  @override
+  String get housingWelfare => 'Housing & Welfare';
+
+  @override
+  String get educationHealthcare => 'Education & Healthcare';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get noDataAvailable => 'No data available';
+
+  @override
+  String get attachments => 'Attachments';
+
+  @override
+  String get postedOn => 'Posted On';
+
+  @override
+  String get high => 'HIGH';
+
+  @override
+  String get low => 'LOW';
+
+  @override
+  String get medium => 'MEDIUM';
+
+  @override
+  String get urgent => 'URGENT';
+
+  @override
   String get statusHistories => 'Status & Histories';
 
   @override
-  String get callorGetDirections => 'Call or Get Direction';
+  String get callorGetDirections => 'Call or Get Directions';
+
+  @override
+  String get allGrievances => 'All Grievances';
+
+  @override
+  String get grievanceDetails => 'Grievance Details';
+
+  @override
+  String get grievanceInformation => 'Grievance Information';
+
+  @override
+  String get noGrievancesAvailable => 'No grievances available';
+
+  @override
+  String get issueCategory => 'Issue Category';
+
+  @override
+  String get priority => 'Priority';
+
+  @override
+  String get expectedResolution => 'Expected Resolution';
+
+  @override
+  String get progress => 'Progress';
+
+  @override
+  String get noProgressUpdates => 'No progress updates available.';
+
+  @override
+  String get progressUpdate => 'Progress Update';
+
+  @override
+  String get resolutionClosure => 'Resolution & Closure';
+
+  @override
+  String expectedBy(String date) {
+    return 'Expected by $date';
+  }
+
+  @override
+  String get resolvedOnLabel => 'Resolved On';
+
+  @override
+  String resolvedOn(String date) {
+    return 'Resolved on $date';
+  }
+
+  @override
+  String get resolution => 'Resolution';
+
+  @override
+  String get resolvedBy => 'Resolved By';
+
+  @override
+  String get reopenInformation => 'Reopen Information';
+
+  @override
+  String get reopenCount => 'Reopen Count';
+
+  @override
+  String get reopenedOn => 'Reopened On';
+
+  @override
+  String get reason => 'Reason';
+
+  @override
+  String get rating => 'Rating';
+
+  @override
+  String ratedOn(String date) {
+    return 'Rated on $date';
+  }
+
+  @override
+  String get attachment => 'Attachment';
+
+  @override
+  String get unableToLoadGrievance => 'Unable to load grievance.';
+
+  @override
+  String submittedOn(String date) {
+    return 'Submitted $date';
+  }
+
+  @override
+  String get noDescriptionAvailable => 'No description available';
+
+  @override
+  String get viewMore => 'View More';
+
+  @override
+  String get allUpdates => 'All Updates';
 }
