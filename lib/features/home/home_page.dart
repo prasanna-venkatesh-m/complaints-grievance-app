@@ -17,62 +17,92 @@ class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(homeControllerProvider);
+  Widget build(
+    BuildContext context,
+    WidgetRef ref,
+  ) {
+    final controller = ref.watch(
+      homeControllerProvider,
+    );
 
     final l10n = AppLocalizations.of(context)!;
 
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.white),
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+      ),
     );
 
     return MainLayout(
       child: Scaffold(
         backgroundColor: const Color(0xffF5F5F5),
         body: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.only(bottom: 90),
-            child: Column(
-              children: [
-                const HomeHeader(),
+          child: RefreshIndicator(
+            onRefresh: () {
+              return ref
+                  .read(homeControllerProvider)
+                  .refresh();
+            },
+            color: Theme.of(context).colorScheme.primary,
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              padding: const EdgeInsets.only(
+                bottom: 90,
+              ),
+              child: Column(
+                children: [
+                  const HomeHeader(),
 
-                const BreakingNews(),
+                  const BreakingNews(),
 
-                const DashboardCard(),
+                  const DashboardCard(),
 
-                const SizedBox(height: 10),
-
-                const LatestUpdatesSection(),
-
-                const SizedBox(height: 16),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: QuickActionCard(
-                          icon: "📝",
-                          title: l10n.raiseGrievance,
-                          onTap: () {
-                            context.push(AppRoutes.grievances);
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: QuickActionCard(
-                          icon: "📞",
-                          title: l10n.deptContacts,
-                          onTap: () {
-                            context.push(AppRoutes.helpDesk);
-                          },
-                        ),
-                      ),
-                    ],
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-              ],
+
+                  const LatestUpdatesSection(),
+
+                  const SizedBox(
+                    height: 16,
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: QuickActionCard(
+                            icon: "📝",
+                            title: l10n.raiseGrievance,
+                            onTap: () {
+                              context.push(
+                                AppRoutes.grievances,
+                              );
+                            },
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Expanded(
+                          child: QuickActionCard(
+                            icon: "📞",
+                            title: l10n.deptContacts,
+                            onTap: () {
+                              context.push(
+                                AppRoutes.helpDesk,
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
