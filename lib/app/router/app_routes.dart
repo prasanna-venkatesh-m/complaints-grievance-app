@@ -7,6 +7,8 @@ class AppRoutes {
   static const helpDesk = '/help-desk';
   static const grievances = '/grievances';
   static const String contentDetails = '/content-details';
+  static const String getAllContents = '/all-contents';
   static const String grievanceDetails = '/grievance-details';
   static const String getAllGrievances = '/all-grievances';
+  
 }
