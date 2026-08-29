@@ -79,10 +79,13 @@ class _DashboardCardState
               HeaderTextWidget(
                 text: l10n.grievanceDashboard,
               ),
+
               const SizedBox(height: 12),
+
               _buildDashboardContent(
                 context,
                 controller,
+                l10n,
               ),
             ],
           ),
@@ -98,6 +101,7 @@ class _DashboardCardState
   Widget _buildDashboardContent(
     BuildContext context,
     HomeController controller,
+    AppLocalizations l10n,
   ) {
     // =======================
     // LOADING
@@ -127,6 +131,7 @@ class _DashboardCardState
         child: _buildErrorState(
           context,
           controller,
+          l10n,
         ),
       );
     }
@@ -139,14 +144,14 @@ class _DashboardCardState
 
     if (dashboard == null) {
       return _buildDashboardContainer(
-        child: const SizedBox(
+        child: SizedBox(
           height: 150,
           child: Center(
             child: Text(
-              'No dashboard data available.',
+              l10n.noDashboardDataAvailable,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white70,
                 fontSize: 13,
               ),
@@ -175,7 +180,7 @@ class _DashboardCardState
                 child: AnimatedStatCard(
                   number:
                       dashboard.resolvedCount.toString(),
-                  title: 'RESOLVED',
+                  title: l10n.resolved,
                   delay: 0,
                 ),
               ),
@@ -186,7 +191,7 @@ class _DashboardCardState
                 child: AnimatedStatCard(
                   number:
                       dashboard.inProgressCount.toString(),
-                  title: 'IN PROGRESS',
+                  title: l10n.inProgress,
                   delay: 150,
                 ),
               ),
@@ -199,7 +204,7 @@ class _DashboardCardState
                       dashboard.resolvedPercentage
                           .toStringAsFixed(0),
                   suffix: '%',
-                  title: 'RESOLVED',
+                  title: l10n.resolved,
                   delay: 300,
                 ),
               ),
@@ -214,6 +219,7 @@ class _DashboardCardState
 
           _buildLatestGrievance(
             dashboard.latestGrievance,
+            l10n,
           ),
         ],
       ),
@@ -251,6 +257,7 @@ class _DashboardCardState
   Widget _buildErrorState(
     BuildContext context,
     HomeController controller,
+    AppLocalizations l10n,
   ) {
     return SizedBox(
       width: double.infinity,
@@ -268,7 +275,7 @@ class _DashboardCardState
 
           Text(
             controller.dashboardErrorMessage ??
-                'Unable to load dashboard.',
+                l10n.unableToLoadDashboard,
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white70,
@@ -286,9 +293,9 @@ class _DashboardCardState
               foregroundColor: Colors.black,
               elevation: 0,
             ),
-            child: const Text(
-              'Retry',
-              style: TextStyle(
+            child: Text(
+              l10n.retry,
+              style: const TextStyle(
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -316,6 +323,7 @@ class _DashboardCardState
 
   Widget _buildLatestGrievance(
     LatestGrievance? grievance,
+    AppLocalizations l10n,
   ) {
     // =======================
     // NO GRIEVANCE
@@ -326,14 +334,14 @@ class _DashboardCardState
         crossAxisAlignment:
             CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             children: [
               Expanded(
                 child: Text(
-                  'Ticket',
+                  l10n.ticket,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
@@ -361,11 +369,11 @@ class _DashboardCardState
 
           const SizedBox(height: 10),
 
-          const Text(
-            'No grievance submitted yet.',
+          Text(
+            l10n.noGrievanceSubmittedYet,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white70,
               fontSize: 12,
             ),
@@ -381,7 +389,7 @@ class _DashboardCardState
     final description =
         grievance.description.trim().isNotEmpty
             ? grievance.description
-            : 'Latest grievance';
+            : l10n.latestGrievance;
 
     final ticketId =
         grievance.ticketId.trim();
@@ -390,6 +398,11 @@ class _DashboardCardState
         grievance.latestStatus.trim().isNotEmpty
             ? grievance.latestStatus
             : 'UNKNOWN';
+
+    final displayStatus = _localizedStatus(
+      status,
+      l10n,
+    );
 
     final progress =
         _statusProgress(status);
@@ -411,7 +424,7 @@ class _DashboardCardState
           children: [
             Expanded(
               child: Text(
-                'Ticket: $description',
+                '${l10n.ticket}: $description',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
@@ -488,7 +501,7 @@ class _DashboardCardState
           children: [
             Expanded(
               child: Text(
-                'Status: $status',
+                '${l10n.status}: $displayStatus',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
@@ -515,6 +528,43 @@ class _DashboardCardState
         ),
       ],
     );
+  }
+
+  // =======================
+  // LOCALIZED STATUS
+  // =======================
+
+  String _localizedStatus(
+    String status,
+    AppLocalizations l10n,
+  ) {
+    switch (status.toUpperCase()) {
+      case 'SUBMITTED':
+        return l10n.submitted;
+
+      case 'IN_PROGRESS':
+      case 'IN PROGRESS':
+        return l10n.inProgress;
+
+      case 'FORWARDED':
+        return l10n.forwarded;
+
+      case 'UNDER_REVIEW':
+      case 'UNDER REVIEW':
+        return l10n.underReview;
+
+      case 'RESOLVED':
+        return l10n.resolved;
+
+      case 'CLOSED':
+        return l10n.closed;
+
+      case 'REJECTED':
+        return l10n.rejected;
+
+      default:
+        return l10n.unknown;
+    }
   }
 
   // =======================
@@ -708,7 +758,9 @@ class _AnimatedStatCardState
                 value: widget.number,
                 suffix: widget.suffix,
               ),
+
               const SizedBox(height: 8),
+
               Text(
                 widget.title,
                 textAlign: TextAlign.center,
