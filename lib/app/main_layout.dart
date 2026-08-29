@@ -29,23 +29,26 @@ class MainLayout extends StatelessWidget {
 
     return Scaffold(
       body: child,
-      bottomNavigationBar: HomeBottomNav(
-        currentIndex: _getCurrentIndex(location),
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              context.go(AppRoutes.home);
-              break;
-
-            case 1:
-              context.go(AppRoutes.grievances);
-              break;
-
-            case 2:
-              context.go(AppRoutes.helpDesk);
-              break;
-          }
-        },
+      bottomNavigationBar: SafeArea(
+        top: false,
+        child: HomeBottomNav(
+          currentIndex: _getCurrentIndex(location),
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                context.go(AppRoutes.home);
+                break;
+        
+              case 1:
+                context.go(AppRoutes.grievances);
+                break;
+        
+              case 2:
+                context.go(AppRoutes.helpDesk);
+                break;
+            }
+          },
+        ),
       ),
     );
   }
