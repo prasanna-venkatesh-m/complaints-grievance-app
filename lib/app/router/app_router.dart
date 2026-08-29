@@ -4,6 +4,7 @@ import 'package:tvk_grievance/app/router/app_routes.dart';
 import 'package:tvk_grievance/features/auth/pages/login_page.dart';
 import 'package:tvk_grievance/features/auth/pages/otp_page.dart';
 import 'package:tvk_grievance/features/auth/pages/signup_page.dart';
+import 'package:tvk_grievance/features/content/content_page.dart';
 import 'package:tvk_grievance/features/content_details/content_details_page.dart';
 import 'package:tvk_grievance/features/grievance/grievance_page.dart';
 import 'package:tvk_grievance/features/grievance/widgets/grievance_list.dart';
@@ -39,7 +40,17 @@ final appRouter = GoRouter(
     GoRoute(path: AppRoutes.helpDesk, builder: (_, __) => HelpDeskPage()),
 
     GoRoute(path: AppRoutes.grievances, builder: (_, __) => GrievancePage()),
-    GoRoute(path: AppRoutes.getAllGrievances, builder: (_, __) => GrievanceListPage()),
+    GoRoute(
+      path: AppRoutes.getAllGrievances,
+      builder: (_, __) => GrievanceListPage(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.getAllContents,
+      builder: (context, state) {
+        return const ContentPage();
+      },
+    ),
 
     GoRoute(
       path: '${AppRoutes.contentDetails}/:contentId',
