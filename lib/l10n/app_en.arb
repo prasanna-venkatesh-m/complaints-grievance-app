@@ -181,5 +181,14 @@
   },
   "noDescriptionAvailable": "No description available",
   "viewMore":"View More",
-  "allUpdates":"All Updates"
+  "allUpdates":"All Updates",
+  "changeMobileNumber":"Change mobile number",
+  "checking": "Checking...",
+  "checkingInternetConnection": "Checking internet connection...",
+  "noInternetConnection": "No internet connection.",
+  "checkingPermissions": "Checking permissions...",
+  "checkingAccount": "Checking account...",
+  "refreshingSession": "Refreshing session...",
+  "noInternetDescription": "Please check your internet connection and try again.",
+  "noInternetRetryMessage": "No internet connection. Please check your network and try again."
 }
