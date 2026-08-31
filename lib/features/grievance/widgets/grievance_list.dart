@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tvk_grievance/app/router/app_routes.dart';
 import 'package:tvk_grievance/app/widgets/header_text_widget.dart';
 import 'package:tvk_grievance/features/grievance/widgets/history_grievance_card.dart';
 import 'package:tvk_grievance/features/grievance/widgets/open_grievance_card.dart';
@@ -90,7 +92,13 @@ class GrievanceList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (openList.isNotEmpty) ...[
-            HeaderTextWidget(text: l10n.open),
+            HeaderActionWidget(
+              title: l10n.open,
+              actionText: l10n.viewMore,
+              onTap: () {
+                context.push(AppRoutes.getAllGrievances);
+              },
+            ),
             const SizedBox(height: 10),
 
             ...openList.map(
@@ -104,7 +112,14 @@ class GrievanceList extends StatelessWidget {
           if (history.isNotEmpty) ...[
             const SizedBox(height: 20),
 
-            HeaderTextWidget(text: l10n.history),
+            HeaderActionWidget(
+              title: l10n.history,
+              actionText: l10n.viewMore,
+              onTap: () {
+                context.push(AppRoutes.getAllGrievances);
+              },
+            ),
+            const SizedBox(height: 5),
 
             ...history.map(
               (grievance) => HistoryGrievanceCard(grievance: grievance),
