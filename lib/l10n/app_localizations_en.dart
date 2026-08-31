@@ -384,4 +384,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get allUpdates => 'All Updates';
+
+  @override
+  String get changeMobileNumber => 'Change mobile number';
+
+  @override
+  String get checking => 'Checking...';
+
+  @override
+  String get checkingInternetConnection => 'Checking internet connection...';
+
+  @override
+  String get noInternetConnection => 'No internet connection.';
+
+  @override
+  String get checkingPermissions => 'Checking permissions...';
+
+  @override
+  String get checkingAccount => 'Checking account...';
+
+  @override
+  String get refreshingSession => 'Refreshing session...';
+
+  @override
+  String get noInternetDescription =>
+      'Please check your internet connection and try again.';
+
+  @override
+  String get noInternetRetryMessage =>
+      'No internet connection. Please check your network and try again.';
 }

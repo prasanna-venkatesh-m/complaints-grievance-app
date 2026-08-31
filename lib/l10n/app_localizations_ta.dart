@@ -226,7 +226,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get unableToLoadDashboard => 'புகார் பலகையை ஏற்ற முடியவில்லை.';
 
   @override
-  String get retry => 'மீண்டும் முயற்சி';
+  String get retry => 'மீண்டும் முயற்சிக்கவும்';
 
   @override
   String get submitted => 'சமர்ப்பிக்கப்பட்டது';
@@ -384,8 +384,37 @@ class AppLocalizationsTa extends AppLocalizations {
   String get noDescriptionAvailable => 'விளக்கம் எதுவும் கிடைக்கவில்லை';
 
   @override
-  String get viewMore => 'மேலும் காண்க';
+  String get viewMore => 'மேலும்';
 
   @override
   String get allUpdates => 'அனைத்து புதுப்பிப்புகள்';
+
+  @override
+  String get changeMobileNumber => 'மொபைல் எண்ணை மாற்ற';
+
+  @override
+  String get checking => 'சரிபார்க்கிறது...';
+
+  @override
+  String get checkingInternetConnection => 'இணைய இணைப்பை சரிபார்க்கிறது...';
+
+  @override
+  String get noInternetConnection => 'இணைய இணைப்பு இல்லை.';
+
+  @override
+  String get checkingPermissions => 'அனுமதிகளை சரிபார்க்கிறது...';
+
+  @override
+  String get checkingAccount => 'கணக்கை சரிபார்க்கிறது...';
+
+  @override
+  String get refreshingSession => 'அமர்வை புதுப்பிக்கிறது...';
+
+  @override
+  String get noInternetDescription =>
+      'தயவுசெய்து உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
+
+  @override
+  String get noInternetRetryMessage =>
+      'இணைய இணைப்பு இல்லை. உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
 }

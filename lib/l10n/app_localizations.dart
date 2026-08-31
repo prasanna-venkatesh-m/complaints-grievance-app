@@ -823,6 +823,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All Updates'**
   String get allUpdates;
+
+  /// No description provided for @changeMobileNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Change mobile number'**
+  String get changeMobileNumber;
+
+  /// No description provided for @checking.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking...'**
+  String get checking;
+
+  /// No description provided for @checkingInternetConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking internet connection...'**
+  String get checkingInternetConnection;
+
+  /// No description provided for @noInternetConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection.'**
+  String get noInternetConnection;
+
+  /// No description provided for @checkingPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking permissions...'**
+  String get checkingPermissions;
+
+  /// No description provided for @checkingAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking account...'**
+  String get checkingAccount;
+
+  /// No description provided for @refreshingSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Refreshing session...'**
+  String get refreshingSession;
+
+  /// No description provided for @noInternetDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check your internet connection and try again.'**
+  String get noInternetDescription;
+
+  /// No description provided for @noInternetRetryMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection. Please check your network and try again.'**
+  String get noInternetRetryMessage;
 }
 
 class _AppLocalizationsDelegate
