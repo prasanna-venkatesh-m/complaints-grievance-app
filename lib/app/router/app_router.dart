@@ -7,7 +7,6 @@ import 'package:tvk_grievance/features/auth/pages/signup_page.dart';
 import 'package:tvk_grievance/features/content/content_page.dart';
 import 'package:tvk_grievance/features/content_details/content_details_page.dart';
 import 'package:tvk_grievance/features/grievance/grievance_page.dart';
-import 'package:tvk_grievance/features/grievance/widgets/grievance_list.dart';
 import 'package:tvk_grievance/features/grievance_details/grievance_details_page.dart';
 import 'package:tvk_grievance/features/grievance_list/grievance_list_page.dart';
 import 'package:tvk_grievance/features/helpdesk/contacts.dart';
