@@ -362,6 +362,12 @@ abstract class AppLocalizations {
   /// **'My Grievance'**
   String get myGrievance;
 
+  /// No description provided for @constituency.
+  ///
+  /// In en, this message translates to:
+  /// **'Constituency'**
+  String get constituency;
+
   /// No description provided for @chooseCategory.
   ///
   /// In en, this message translates to:
@@ -877,6 +883,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No internet connection. Please check your network and try again.'**
   String get noInternetRetryMessage;
+
+  /// No description provided for @unableToPlayVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to play video'**
+  String get unableToPlayVideo;
+
+  /// No description provided for @file.
+  ///
+  /// In en, this message translates to:
+  /// **'File'**
+  String get file;
+
+  /// No description provided for @video.
+  ///
+  /// In en, this message translates to:
+  /// **'Video'**
+  String get video;
+
+  /// No description provided for @image.
+  ///
+  /// In en, this message translates to:
+  /// **'Image'**
+  String get image;
 }
 
 class _AppLocalizationsDelegate
