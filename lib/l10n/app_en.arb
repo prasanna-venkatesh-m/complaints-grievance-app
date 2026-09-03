@@ -68,6 +68,7 @@
   "fileNew": "File New",
   "myGrievance": "My Grievance",
 
+  "constituency":"Constituency",
   "chooseCategory": "CHOOSE CATEGORY",
   "locationDetails": "LOCATION DETAILS",
   "ward": "WARD",
@@ -190,5 +191,9 @@
   "checkingAccount": "Checking account...",
   "refreshingSession": "Refreshing session...",
   "noInternetDescription": "Please check your internet connection and try again.",
-  "noInternetRetryMessage": "No internet connection. Please check your network and try again."
+  "noInternetRetryMessage": "No internet connection. Please check your network and try again.",
+  "unableToPlayVideo":"Unable to play video",
+  "file": "File",
+  "video":"Video",
+  "image":"Image"
 }
