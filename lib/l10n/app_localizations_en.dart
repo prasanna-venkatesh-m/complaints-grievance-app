@@ -146,6 +146,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myGrievance => 'My Grievance';
 
   @override
+  String get constituency => 'Constituency';
+
+  @override
   String get chooseCategory => 'CHOOSE CATEGORY';
 
   @override
@@ -413,4 +416,16 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get noInternetRetryMessage =>
       'No internet connection. Please check your network and try again.';
+
+  @override
+  String get unableToPlayVideo => 'Unable to play video';
+
+  @override
+  String get file => 'File';
+
+  @override
+  String get video => 'Video';
+
+  @override
+  String get image => 'Image';
 }
