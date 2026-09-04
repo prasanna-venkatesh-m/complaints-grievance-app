@@ -147,6 +147,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get myGrievance => 'எனது குறைகள்';
 
   @override
+  String get constituency => 'தொகுதி';
+
+  @override
   String get chooseCategory => 'பிரிவைத் தேர்ந்தெடுக்கவும்';
 
   @override
@@ -417,4 +420,16 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get noInternetRetryMessage =>
       'இணைய இணைப்பு இல்லை. உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
+
+  @override
+  String get unableToPlayVideo => 'வீடியோவை இயக்க முடியவில்லை';
+
+  @override
+  String get file => 'கோப்பு';
+
+  @override
+  String get video => 'வீடியோ';
+
+  @override
+  String get image => 'படம்';
 }
