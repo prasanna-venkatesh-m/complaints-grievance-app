@@ -195,5 +195,37 @@
   "unableToPlayVideo":"Unable to play video",
   "file": "File",
   "video":"Video",
-  "image":"Image"
+  "image":"Image",
+
+  "maximumFilesAllowed": "You can upload a maximum of {count} files.",
+  "@maximumFilesAllowed": {
+    "description": "Maximum number of grievance attachments allowed",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "maximumFileSizeAllowed": "Each file must be {size} MB or smaller.",
+  "@maximumFileSizeAllowed": {
+    "description": "Maximum size allowed for each attachment",
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaUploadNote": "* Maximum {count} files. Each file must be {size} MB or smaller.",
+"@mediaUploadNote": {
+  "description": "Media upload restrictions",
+  "placeholders": {
+    "count": {
+      "type": "int"
+    },
+    "size": {
+      "type": "int"
+    }
+  }
+}
 }
