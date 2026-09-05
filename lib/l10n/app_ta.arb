@@ -153,5 +153,19 @@
   "unableToPlayVideo": "வீடியோவை இயக்க முடியவில்லை",
   "file": "கோப்பு",
   "video": "வீடியோ",
-  "image": "படம்"
+  "image": "படம்",
+  "maximumFilesAllowed": "அதிகபட்சம் {count} கோப்புகளை மட்டுமே பதிவேற்ற முடியும்.",
+  "maximumFileSizeAllowed": "ஒவ்வொரு கோப்பின் அளவும் {size} MB அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்.",
+  "mediaUploadNote": "* அதிகபட்சம் {count} கோப்புகளை பதிவேற்றலாம். ஒவ்வொரு கோப்பும் {size} MB அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்.",
+  "@mediaUploadNote": {
+    "description": "Media upload restrictions",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  }
 }
