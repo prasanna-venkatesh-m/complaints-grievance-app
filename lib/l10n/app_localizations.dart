@@ -907,6 +907,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Image'**
   String get image;
+
+  /// Maximum number of grievance attachments allowed
+  ///
+  /// In en, this message translates to:
+  /// **'You can upload a maximum of {count} files.'**
+  String maximumFilesAllowed(int count);
+
+  /// Maximum size allowed for each attachment
+  ///
+  /// In en, this message translates to:
+  /// **'Each file must be {size} MB or smaller.'**
+  String maximumFileSizeAllowed(int size);
+
+  /// Media upload restrictions
+  ///
+  /// In en, this message translates to:
+  /// **'* Maximum {count} files. Each file must be {size} MB or smaller.'**
+  String mediaUploadNote(int count, int size);
 }
 
 class _AppLocalizationsDelegate
