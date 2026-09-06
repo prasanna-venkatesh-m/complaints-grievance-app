@@ -227,5 +227,10 @@
       "type": "int"
     }
   }
-}
+},
+"maintenanceTitle": "App Under Maintenance",
+"maintenanceDescription": "Our app is currently under maintenance. Please try again later.",
+"updateRequired": "Update Required",
+"updateRequiredMessage": "A new version of the app is available. Please update the app to continue.",
+"update": "Update"
 }
