@@ -578,6 +578,18 @@ abstract class AppLocalizations {
   /// **'Sanitation'**
   String get sanitation;
 
+  /// No description provided for @drainage.
+  ///
+  /// In en, this message translates to:
+  /// **'Drainage'**
+  String get drainage;
+
+  /// No description provided for @garbage.
+  ///
+  /// In en, this message translates to:
+  /// **'Garbage'**
+  String get garbage;
+
   /// No description provided for @publicServices.
   ///
   /// In en, this message translates to:
@@ -925,6 +937,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'* Maximum {count} files. Each file must be {size} MB or smaller.'**
   String mediaUploadNote(int count, int size);
+
+  /// No description provided for @maintenanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App Under Maintenance'**
+  String get maintenanceTitle;
+
+  /// No description provided for @maintenanceDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Our app is currently under maintenance. Please try again later.'**
+  String get maintenanceDescription;
+
+  /// No description provided for @updateRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Required'**
+  String get updateRequired;
+
+  /// No description provided for @updateRequiredMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'A new version of the app is available. Please update the app to continue.'**
+  String get updateRequiredMessage;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
 }
 
 class _AppLocalizationsDelegate
