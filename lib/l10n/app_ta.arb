@@ -90,13 +90,15 @@
   "closed": "மூடப்பட்டது",
   "rejected": "நிராகரிக்கப்பட்டது",
 
-  "water": "தண்ணீர்",
+  "water": "குடிநீர்",
   "roads": "சாலைகள்",
   "electricity": "மின்சாரம்",
   "sanitation": "சுகாதாரம்",
   "publicServices": "பொது சேவைகள்",
   "housingWelfare": "வீடு மற்றும் நலத்திட்டங்கள்",
   "educationHealthcare": "கல்வி மற்றும் சுகாதாரம்",
+  "drainage": "கழிவுநீர்",
+  "garbage": "திடக்கழிவு",
   "other": "மற்றவை",
 
   "description": "விளக்கம்",
