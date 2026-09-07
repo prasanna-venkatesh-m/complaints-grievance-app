@@ -108,6 +108,8 @@
   "roads": "Roads",
   "electricity": "Electricity",
   "sanitation": "Sanitation",
+  "drainage": "Drainage",
+  "garbage": "Garbage",
   "publicServices": "Public Services",
   "housingWelfare": "Housing & Welfare",
   "educationHealthcare": "Education & Healthcare",
