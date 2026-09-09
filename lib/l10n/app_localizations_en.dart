@@ -255,6 +255,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sanitation => 'Sanitation';
 
   @override
+  String get drainage => 'Drainage';
+
+  @override
+  String get garbage => 'Garbage';
+
+  @override
   String get publicServices => 'Public Services';
 
   @override
@@ -428,4 +434,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get image => 'Image';
+
+  @override
+  String maximumFilesAllowed(int count) {
+    return 'You can upload a maximum of $count files.';
+  }
+
+  @override
+  String maximumFileSizeAllowed(int size) {
+    return 'Each file must be $size MB or smaller.';
+  }
+
+  @override
+  String mediaUploadNote(int count, int size) {
+    return '* Maximum $count files. Each file must be $size MB or smaller.';
+  }
+
+  @override
+  String get maintenanceTitle => 'App Under Maintenance';
+
+  @override
+  String get maintenanceDescription =>
+      'Our app is currently under maintenance. Please try again later.';
+
+  @override
+  String get updateRequired => 'Update Required';
+
+  @override
+  String get updateRequiredMessage =>
+      'A new version of the app is available. Please update the app to continue.';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get logoutConfirmation => 'Are you sure you want to logout?';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get deleteAccountConfirmation =>
+      'Are you sure you want to delete your account? This action cannot be undone.';
+
+  @override
+  String get deleteAccountDescription =>
+      'Deleting your account will permanently remove your account and associated data.';
 }
