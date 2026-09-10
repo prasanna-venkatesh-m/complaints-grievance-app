@@ -842,6 +842,12 @@ abstract class AppLocalizations {
   /// **'All Updates'**
   String get allUpdates;
 
+  /// No description provided for @wrongMobileNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong mobile number?'**
+  String get wrongMobileNumber;
+
   /// No description provided for @changeMobileNumber.
   ///
   /// In en, this message translates to:
