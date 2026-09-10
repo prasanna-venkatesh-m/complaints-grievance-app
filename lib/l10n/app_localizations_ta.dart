@@ -4,466 +4,494 @@ import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+/// The translations for Tamil (`ta`).
+class AppLocalizationsTa extends AppLocalizations {
+  AppLocalizationsTa([String locale = 'ta']) : super(locale);
 
   @override
-  String get english => 'English';
+  String get english => 'ஆங்கிலம்';
 
   @override
-  String get tamil => 'Tamil';
+  String get tamil => 'தமிழ்';
 
   @override
   String helloUser(String name) {
-    return 'Hello, $name!';
+    return 'வணக்கம், $name!';
   }
 
   @override
-  String get home => 'Home';
+  String get home => 'முகப்பு';
 
   @override
-  String get grievance => 'Grievances';
+  String get grievance => 'குறைகள்';
 
   @override
-  String get helpDesk => 'Helpdesk';
+  String get helpDesk => 'உதவி மையம்';
 
   @override
-  String get submit => 'Submit';
+  String get submit => 'சமர்ப்பிக்கவும்';
 
   @override
-  String get welcomeToTvk => 'WELCOME TO TVK';
+  String get welcomeToTvk => 'தவெக உங்களை வரவேற்கிறது!';
 
   @override
-  String get loginWithMobileNumber => 'Login with Mobile number';
+  String get loginWithMobileNumber => 'மொபைல் எண்ணில் உள்நுழையவும்';
 
   @override
-  String get mobileNumber => 'Mobile Number';
+  String get mobileNumber => 'மொபைல் எண்';
 
   @override
-  String get mobileNumberRequired => 'Mobile number is required';
+  String get mobileNumberRequired => 'மொபைல் எண்ணை உள்ளிடவும்';
 
   @override
-  String get invalidMobileNumber => 'Enter valid 10 digit mobile number';
+  String get invalidMobileNumber => '10 இலக்க மொபைல் எண்ணை உள்ளிடவும்';
 
   @override
-  String get getOtp => 'Get OTP';
+  String get getOtp => 'OTP பெறுக';
 
   @override
-  String get dontHaveAccount => 'Don\'t have an account? ';
+  String get dontHaveAccount => 'கணக்கு இல்லையா?';
 
   @override
-  String get register => 'Register';
+  String get register => 'பதிவு செய்க';
 
   @override
-  String get enterOtp => 'Enter OTP';
+  String get enterOtp => 'OTP உள்ளிடவும்';
 
   @override
   String get enterOtpSubtitle =>
-      'Enter the 6 digit OTP sent to your mobile number';
+      'உங்கள் மொபைல் எண்ணிற்கு அனுப்பப்பட்ட 6 இலக்க OTP-ஐ உள்ளிடவும்';
 
   @override
-  String get resendOtp => 'Resend OTP';
+  String get resendOtp => 'OTP மீண்டும் அனுப்பவும்';
 
   @override
   String resendOtpIn(Object seconds) {
-    return 'Resend OTP in ${seconds}s';
+    return '$seconds விநாடிகளில் OTP மீண்டும் அனுப்பலாம்';
   }
 
   @override
-  String get createYourAccount => 'Create your Account';
+  String get createYourAccount => 'உங்கள் கணக்கை உருவாக்கவும்';
 
   @override
-  String get fullName => 'Full Name';
+  String get fullName => 'முழுப் பெயர்';
 
   @override
-  String get fullNameRequired => 'Full Name is required';
+  String get fullNameRequired => 'முழுப் பெயர் அவசியமானது';
 
   @override
-  String get minimumThreeCharacters => 'Minimum 3 characters required';
+  String get minimumThreeCharacters =>
+      'குறைந்தது 3 எழுத்துக்கள் இருக்க வேண்டும்';
 
   @override
-  String get onlyAlphabetsAllowed => 'Only alphabets allowed';
+  String get onlyAlphabetsAllowed => 'எழுத்துக்கள் மட்டுமே அனுமதிக்கப்படும்';
 
   @override
-  String get dateOfBirth => 'Date of Birth';
+  String get dateOfBirth => 'பிறந்த தேதி';
 
   @override
-  String get dateOfBirthRequired => 'Date of Birth is required';
+  String get dateOfBirthRequired => 'பிறந்த தேதி அவசியமானது';
 
   @override
-  String get emailId => 'Email Id';
+  String get emailId => 'மின்னஞ்சல் முகவரி';
 
   @override
-  String get constituencyNumber => 'Constituency Number';
+  String get constituencyNumber => 'தொகுதி எண்';
 
   @override
-  String get constituencyNumberRequired => 'Constituency number required';
+  String get constituencyNumberRequired => 'தொகுதி எண் அவசியமானது';
 
   @override
-  String get gender => 'Gender';
+  String get gender => 'பாலினம்';
 
   @override
-  String get genderRequired => 'Gender is required';
+  String get genderRequired => 'பாலினம் அவசியமானது';
 
   @override
-  String get district => 'District';
+  String get district => 'மாவட்டம்';
 
   @override
-  String get districtRequired => 'District is required';
+  String get districtRequired => 'மாவட்டம் அவசியமானது';
 
   @override
-  String get alreadyHaveAccount => 'Already have an account? ';
+  String get alreadyHaveAccount => 'ஏற்கனவே கணக்கு உள்ளதா?';
 
   @override
-  String get login => 'Login';
+  String get login => 'உள்நுழைக';
 
   @override
-  String get male => 'Male';
+  String get male => 'ஆண்';
 
   @override
-  String get female => 'Female';
+  String get female => 'பெண்';
 
   @override
-  String get otherGender => 'Other';
+  String get otherGender => 'மற்றவை';
 
   @override
-  String get grievanceDashboard => 'GRIEVANCE DASHBOARD';
+  String get grievanceDashboard => 'குறைதீர்ப்பு முகப்பு';
 
   @override
-  String get latestUpdates => 'LATEST UPDATES';
+  String get latestUpdates => 'சமீபத்திய புதுப்பிப்புகள்';
 
   @override
-  String get raiseGrievance => 'Raise Grievance';
+  String get raiseGrievance => 'குறை பதிவு';
 
   @override
-  String get deptContacts => 'Dept. Contacts';
+  String get deptContacts => 'துறை தொடர்புகள்';
 
   @override
-  String get fileNew => 'File New';
+  String get fileNew => 'புதிய குறை';
 
   @override
-  String get myGrievance => 'My Grievance';
+  String get myGrievance => 'எனது குறைகள்';
 
   @override
-  String get constituency => 'Constituency';
+  String get constituency => 'தொகுதி';
 
   @override
-  String get chooseCategory => 'CHOOSE CATEGORY';
+  String get chooseCategory => 'பிரிவைத் தேர்ந்தெடுக்கவும்';
 
   @override
-  String get locationDetails => 'LOCATION DETAILS';
+  String get locationDetails => 'இட விவரங்கள்';
 
   @override
-  String get ward => 'WARD';
+  String get ward => 'வார்டு';
 
   @override
-  String get selectWard => 'Select Ward';
+  String get selectWard => 'வார்டைத் தேர்ந்தெடுக்கவும்';
 
   @override
-  String get area => 'AREA';
+  String get area => 'பகுதி';
 
   @override
-  String get selectArea => 'Select Area';
+  String get selectArea => 'பகுதியைத் தேர்ந்தெடுக்கவும்';
 
   @override
-  String get street => 'STREET';
+  String get street => 'தெரு';
 
   @override
-  String get selectStreet => 'Select Street';
+  String get selectStreet => 'தெருவைத் தேர்ந்தெடுக்கவும்';
 
   @override
-  String get describe => 'DESCRIBE';
+  String get describe => 'விவரம்';
 
   @override
-  String get describe_the_issue => 'Describe the issue...';
+  String get describe_the_issue => 'சிக்கலை விவரிக்கவும்...';
 
   @override
-  String get uploadEvidence => 'UPLOAD EVIDENCE';
+  String get uploadEvidence => 'சான்றைப் பதிவேற்றவும்';
 
   @override
   String get grievance_registered_successfully =>
-      'Grievance registered successfully';
+      'குறை வெற்றிகரமாகப் பதிவு செய்யப்பட்டது';
 
   @override
-  String get select_location_details => 'Please select location details';
+  String get select_location_details =>
+      'தயவுசெய்து இட விவரங்களைத் தேர்ந்தெடுக்கவும்';
 
   @override
-  String get please_choose_category => 'Please choose category';
+  String get please_choose_category => 'தயவுசெய்து பிரிவைத் தேர்ந்தெடுக்கவும்';
 
   @override
-  String get open => 'OPEN';
+  String get open => 'செயலில் உள்ளவை';
 
   @override
-  String get history => 'HISTORY';
+  String get history => 'முந்தையவை';
 
   @override
-  String get resolved => 'Resolved';
+  String get resolved => 'தீர்க்கப்பட்டது';
 
   @override
-  String get inProgress => 'In Progress';
+  String get inProgress => 'செயல்பாட்டில்';
 
   @override
-  String get ticket => 'Ticket';
+  String get ticket => 'புகார்';
 
   @override
-  String get status => 'Status';
+  String get status => 'நிலை';
 
   @override
-  String get latestGrievance => 'Latest grievance';
+  String get latestGrievance => 'சமீபத்திய புகார்';
 
   @override
-  String get unknown => 'Unknown';
+  String get unknown => 'தெரியவில்லை';
 
   @override
-  String get noDashboardDataAvailable => 'No dashboard data available.';
+  String get noDashboardDataAvailable =>
+      'புகார் பலகை தரவு எதுவும் கிடைக்கவில்லை.';
 
   @override
-  String get noGrievanceSubmittedYet => 'No grievance submitted yet.';
+  String get noGrievanceSubmittedYet =>
+      'இதுவரை எந்த புகாரும் சமர்ப்பிக்கப்படவில்லை.';
 
   @override
-  String get unableToLoadDashboard => 'Unable to load dashboard.';
+  String get unableToLoadDashboard => 'புகார் பலகையை ஏற்ற முடியவில்லை.';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'மீண்டும் முயற்சிக்கவும்';
 
   @override
-  String get submitted => 'Submitted';
+  String get submitted => 'சமர்ப்பிக்கப்பட்டது';
 
   @override
-  String get forwarded => 'Forwarded';
+  String get forwarded => 'முன்னனுப்பப்பட்டது';
 
   @override
-  String get underReview => 'Under Review';
+  String get underReview => 'மதிப்பாய்வில் உள்ளது';
 
   @override
-  String get closed => 'Closed';
+  String get closed => 'மூடப்பட்டது';
 
   @override
-  String get rejected => 'Rejected';
+  String get rejected => 'நிராகரிக்கப்பட்டது';
 
   @override
-  String get water => 'Water';
+  String get water => 'குடிநீர்';
 
   @override
-  String get roads => 'Roads';
+  String get roads => 'சாலைகள்';
 
   @override
-  String get electricity => 'Electricity';
+  String get electricity => 'மின்சாரம்';
 
   @override
-  String get sanitation => 'Sanitation';
+  String get sanitation => 'சுகாதாரம்';
 
   @override
-  String get drainage => 'Drainage';
+  String get drainage => 'கழிவுநீர்';
 
   @override
-  String get garbage => 'Garbage';
+  String get garbage => 'திடக்கழிவு';
 
   @override
-  String get publicServices => 'Public Services';
+  String get publicServices => 'பொது சேவைகள்';
 
   @override
-  String get housingWelfare => 'Housing & Welfare';
+  String get housingWelfare => 'வீடு மற்றும் நலத்திட்டங்கள்';
 
   @override
-  String get educationHealthcare => 'Education & Healthcare';
+  String get educationHealthcare => 'கல்வி மற்றும் சுகாதாரம்';
 
   @override
-  String get other => 'Other';
+  String get other => 'மற்றவை';
 
   @override
-  String get description => 'Description';
+  String get description => 'விளக்கம்';
 
   @override
-  String get noDataAvailable => 'No data available';
+  String get noDataAvailable => 'தரவு எதுவும் கிடைக்கவில்லை';
 
   @override
-  String get attachments => 'Attachments';
+  String get attachments => 'இணைப்புகள்';
 
   @override
-  String get postedOn => 'Posted On';
+  String get postedOn => 'வெளியிடப்பட்ட தேதி';
 
   @override
-  String get high => 'HIGH';
+  String get high => 'அதிகம்';
 
   @override
-  String get low => 'LOW';
+  String get low => 'குறைவு';
 
   @override
-  String get medium => 'MEDIUM';
+  String get medium => 'நடுத்தரம்';
 
   @override
-  String get urgent => 'URGENT';
+  String get urgent => 'அவசரம்';
 
   @override
-  String get statusHistories => 'Status & Histories';
+  String get statusHistories => 'நிலை மற்றும் வரலாறு';
 
   @override
-  String get callorGetDirections => 'Call or Get Directions';
+  String get callorGetDirections => 'அழைக்கவும் அல்லது வழியைப் பெறவும்';
 
   @override
-  String get allGrievances => 'All Grievances';
+  String get allGrievances => 'அனைத்து புகார்கள்';
 
   @override
-  String get grievanceDetails => 'Grievance Details';
+  String get grievanceDetails => 'குறை விவரங்கள்';
 
   @override
-  String get grievanceInformation => 'Grievance Information';
+  String get grievanceInformation => 'குறை தொடர்பான தகவல்கள்';
 
   @override
-  String get noGrievancesAvailable => 'No grievances available';
+  String get noGrievancesAvailable => 'குறைகள் எதுவும் கிடைக்கவில்லை';
 
   @override
-  String get issueCategory => 'Issue Category';
+  String get issueCategory => 'குறை வகை';
 
   @override
-  String get priority => 'Priority';
+  String get priority => 'முன்னுரிமை';
 
   @override
-  String get expectedResolution => 'Expected Resolution';
+  String get expectedResolution => 'எதிர்பார்க்கப்படும் தீர்வு';
 
   @override
-  String get progress => 'Progress';
+  String get progress => 'முன்னேற்றம்';
 
   @override
-  String get noProgressUpdates => 'No progress updates available.';
+  String get noProgressUpdates => 'முன்னேற்றப் புதுப்பிப்புகள் எதுவும் இல்லை';
 
   @override
-  String get progressUpdate => 'Progress Update';
+  String get progressUpdate => 'முன்னேற்றப் புதுப்பிப்பு';
 
   @override
-  String get resolutionClosure => 'Resolution & Closure';
+  String get resolutionClosure => 'தீர்வு மற்றும் நிறைவு';
 
   @override
   String expectedBy(String date) {
-    return 'Expected by $date';
+    return '$dateக்குள் தீர்வு எதிர்பார்க்கப்படுகிறது';
   }
 
   @override
-  String get resolvedOnLabel => 'Resolved On';
+  String get resolvedOnLabel => 'தீர்வு தேதி';
 
   @override
   String resolvedOn(String date) {
-    return 'Resolved on $date';
+    return '$date அன்று தீர்க்கப்பட்டது';
   }
 
   @override
-  String get resolution => 'Resolution';
+  String get resolution => 'தீர்வு';
 
   @override
-  String get resolvedBy => 'Resolved By';
+  String get resolvedBy => 'தீர்வு செய்தவர்';
 
   @override
-  String get reopenInformation => 'Reopen Information';
+  String get reopenInformation => 'மீண்டும் திறந்த தகவல்கள்';
 
   @override
-  String get reopenCount => 'Reopen Count';
+  String get reopenCount => 'மீண்டும் திறந்த எண்ணிக்கை';
 
   @override
-  String get reopenedOn => 'Reopened On';
+  String get reopenedOn => 'மீண்டும் திறந்த தேதி';
 
   @override
-  String get reason => 'Reason';
+  String get reason => 'காரணம்';
 
   @override
-  String get rating => 'Rating';
+  String get rating => 'மதிப்பீடு';
 
   @override
   String ratedOn(String date) {
-    return 'Rated on $date';
+    return '$date அன்று மதிப்பீடு செய்யப்பட்டது';
   }
 
   @override
-  String get attachment => 'Attachment';
+  String get attachment => 'இணைப்பு';
 
   @override
-  String get unableToLoadGrievance => 'Unable to load grievance.';
+  String get unableToLoadGrievance => 'குறையை ஏற்ற முடியவில்லை.';
 
   @override
   String submittedOn(String date) {
-    return 'Submitted $date';
+    return '$date அன்று சமர்ப்பிக்கப்பட்டது';
   }
 
   @override
-  String get noDescriptionAvailable => 'No description available';
+  String get noDescriptionAvailable => 'விளக்கம் எதுவும் கிடைக்கவில்லை';
 
   @override
-  String get viewMore => 'View More';
+  String get viewMore => 'மேலும்';
 
   @override
-  String get allUpdates => 'All Updates';
+  String get allUpdates => 'அனைத்து புதுப்பிப்புகள்';
 
   @override
-  String get changeMobileNumber => 'Change mobile number';
+  String get wrongMobileNumber => 'தவறான மொபைல் எண்ணா?';
 
   @override
-  String get checking => 'Checking...';
+  String get changeMobileNumber => 'மொபைல் எண்ணை மாற்ற';
 
   @override
-  String get checkingInternetConnection => 'Checking internet connection...';
+  String get checking => 'சரிபார்க்கிறது...';
 
   @override
-  String get noInternetConnection => 'No internet connection.';
+  String get checkingInternetConnection => 'இணைய இணைப்பை சரிபார்க்கிறது...';
 
   @override
-  String get checkingPermissions => 'Checking permissions...';
+  String get noInternetConnection => 'இணைய இணைப்பு இல்லை.';
 
   @override
-  String get checkingAccount => 'Checking account...';
+  String get checkingPermissions => 'அனுமதிகளை சரிபார்க்கிறது...';
 
   @override
-  String get refreshingSession => 'Refreshing session...';
+  String get checkingAccount => 'கணக்கை சரிபார்க்கிறது...';
+
+  @override
+  String get refreshingSession => 'அமர்வை புதுப்பிக்கிறது...';
 
   @override
   String get noInternetDescription =>
-      'Please check your internet connection and try again.';
+      'தயவுசெய்து உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
 
   @override
   String get noInternetRetryMessage =>
-      'No internet connection. Please check your network and try again.';
+      'இணைய இணைப்பு இல்லை. உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
 
   @override
-  String get unableToPlayVideo => 'Unable to play video';
+  String get unableToPlayVideo => 'வீடியோவை இயக்க முடியவில்லை';
 
   @override
-  String get file => 'File';
+  String get file => 'கோப்பு';
 
   @override
-  String get video => 'Video';
+  String get video => 'வீடியோ';
 
   @override
-  String get image => 'Image';
+  String get image => 'படம்';
 
   @override
   String maximumFilesAllowed(int count) {
-    return 'You can upload a maximum of $count files.';
+    return 'அதிகபட்சம் $count கோப்புகளை மட்டுமே பதிவேற்ற முடியும்.';
   }
 
   @override
   String maximumFileSizeAllowed(int size) {
-    return 'Each file must be $size MB or smaller.';
+    return 'ஒவ்வொரு கோப்பின் அளவும் $size MB அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்.';
   }
 
   @override
   String mediaUploadNote(int count, int size) {
-    return '* Maximum $count files. Each file must be $size MB or smaller.';
+    return '* அதிகபட்சம் $count கோப்புகளை பதிவேற்றலாம். ஒவ்வொரு கோப்பும் $size MB அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்.';
   }
 
   @override
-  String get maintenanceTitle => 'App Under Maintenance';
+  String get maintenanceTitle => 'செயலி பராமரிப்பில் உள்ளது';
 
   @override
   String get maintenanceDescription =>
-      'Our app is currently under maintenance. Please try again later.';
+      'எங்கள் செயலி தற்போது பராமரிப்பில் உள்ளது. தயவுசெய்து சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.';
 
   @override
-  String get updateRequired => 'Update Required';
+  String get updateRequired => 'புதுப்பிப்பு தேவை';
 
   @override
   String get updateRequiredMessage =>
-      'A new version of the app is available. Please update the app to continue.';
+      'பயன்பாட்டின் புதிய பதிப்பு கிடைக்கிறது. தொடர, பயன்பாட்டைப் புதுப்பிக்கவும்.';
 
   @override
-  String get update => 'Update';
+  String get update => 'புதுப்பிக்கவும்';
+
+  @override
+  String get logout => 'வெளியேறு';
+
+  @override
+  String get logoutConfirmation =>
+      'நீங்கள் நிச்சயமாக வெளியேற விரும்புகிறீர்களா?';
+
+  @override
+  String get cancel => 'ரத்து செய்க';
+
+  @override
+  String get deleteAccount => 'கணக்கை நீக்கவும்';
+
+  @override
+  String get deleteAccountConfirmation =>
+      'உங்கள் கணக்கை நீக்க விரும்புகிறீர்களா? இந்த செயல்பாட்டை மாற்ற முடியாது.';
+
+  @override
+  String get deleteAccountDescription =>
+      'உங்கள் கணக்கை நீக்குவதன் மூலம் உங்கள் கணக்கும் தொடர்புடைய தரவுகளும் நிரந்தரமாக நீக்கப்படும்.';
 }
