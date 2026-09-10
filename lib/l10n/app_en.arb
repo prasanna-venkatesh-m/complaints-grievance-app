@@ -185,6 +185,7 @@
   "noDescriptionAvailable": "No description available",
   "viewMore":"View More",
   "allUpdates":"All Updates",
+  "wrongMobileNumber": "Wrong mobile number?",
   "changeMobileNumber":"Change mobile number",
   "checking": "Checking...",
   "checkingInternetConnection": "Checking internet connection...",
