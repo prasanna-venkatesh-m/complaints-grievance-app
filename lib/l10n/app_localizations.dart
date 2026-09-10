@@ -1,1046 +1,494 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
-import 'app_localizations_en.dart';
-import 'app_localizations_ta.dart';
+import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// Callers can lookup localized strings with an instance of AppLocalizations
-/// returned by `AppLocalizations.of(context)`.
-///
-/// Applications need to include `AppLocalizations.delegate()` in their app's
-/// `localizationDelegates` list, and the locales they support in the app's
-/// `supportedLocales` list. For example:
-///
-/// ```dart
-/// import 'l10n/app_localizations.dart';
-///
-/// return MaterialApp(
-///   localizationsDelegates: AppLocalizations.localizationsDelegates,
-///   supportedLocales: AppLocalizations.supportedLocales,
-///   home: MyApplicationHome(),
-/// );
-/// ```
-///
-/// ## Update pubspec.yaml
-///
-/// Please make sure to update your pubspec.yaml to include the following
-/// packages:
-///
-/// ```yaml
-/// dependencies:
-///   # Internationalization support.
-///   flutter_localizations:
-///     sdk: flutter
-///   intl: any # Use the pinned version from flutter_localizations
-///
-///   # Rest of dependencies
-/// ```
-///
-/// ## iOS Applications
-///
-/// iOS applications define key application metadata, including supported
-/// locales, in an Info.plist file that is built into the application bundle.
-/// To configure the locales supported by your app, you’ll need to edit this
-/// file.
-///
-/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
-/// Then, in the Project Navigator, open the Info.plist file under the Runner
-/// project’s Runner folder.
-///
-/// Next, select the Information Property List item, select Add Item from the
-/// Editor menu, then select Localizations from the pop-up menu.
-///
-/// Select and expand the newly-created Localizations item then, for each
-/// locale your application supports, add a new item and select the locale
-/// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the AppLocalizations.supportedLocales
-/// property.
-abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
-
-  final String localeName;
-
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
-  }
-
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
-
-  /// A list of this localizations delegate along with the default localizations
-  /// delegates.
-  ///
-  /// Returns a list of localizations delegates containing this delegate along with
-  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
-  /// and GlobalWidgetsLocalizations.delegate.
-  ///
-  /// Additional delegates can be added by appending to this list in
-  /// MaterialApp. This list does not have to be used at all if a custom list
-  /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
-
-  /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('ta'),
-  ];
-
-  /// English language name
-  ///
-  /// In en, this message translates to:
-  /// **'English'**
-  String get english;
-
-  /// Tamil language name
-  ///
-  /// In en, this message translates to:
-  /// **'Tamil'**
-  String get tamil;
-
-  /// Greeting the current user by name
-  ///
-  /// In en, this message translates to:
-  /// **'Hello, {name}!'**
-  String helloUser(String name);
-
-  /// No description provided for @home.
-  ///
-  /// In en, this message translates to:
-  /// **'Home'**
-  String get home;
-
-  /// No description provided for @grievance.
-  ///
-  /// In en, this message translates to:
-  /// **'Grievances'**
-  String get grievance;
-
-  /// No description provided for @helpDesk.
-  ///
-  /// In en, this message translates to:
-  /// **'Helpdesk'**
-  String get helpDesk;
-
-  /// No description provided for @submit.
-  ///
-  /// In en, this message translates to:
-  /// **'Submit'**
-  String get submit;
-
-  /// No description provided for @welcomeToTvk.
-  ///
-  /// In en, this message translates to:
-  /// **'WELCOME TO TVK'**
-  String get welcomeToTvk;
-
-  /// No description provided for @loginWithMobileNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Login with Mobile number'**
-  String get loginWithMobileNumber;
-
-  /// No description provided for @mobileNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Mobile Number'**
-  String get mobileNumber;
-
-  /// No description provided for @mobileNumberRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Mobile number is required'**
-  String get mobileNumberRequired;
-
-  /// No description provided for @invalidMobileNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter valid 10 digit mobile number'**
-  String get invalidMobileNumber;
-
-  /// No description provided for @getOtp.
-  ///
-  /// In en, this message translates to:
-  /// **'Get OTP'**
-  String get getOtp;
-
-  /// No description provided for @dontHaveAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Don\'t have an account? '**
-  String get dontHaveAccount;
-
-  /// No description provided for @register.
-  ///
-  /// In en, this message translates to:
-  /// **'Register'**
-  String get register;
-
-  /// No description provided for @enterOtp.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter OTP'**
-  String get enterOtp;
-
-  /// No description provided for @enterOtpSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter the 6 digit OTP sent to your mobile number'**
-  String get enterOtpSubtitle;
-
-  /// No description provided for @resendOtp.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend OTP'**
-  String get resendOtp;
-
-  /// No description provided for @resendOtpIn.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend OTP in {seconds}s'**
-  String resendOtpIn(Object seconds);
-
-  /// No description provided for @createYourAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Create your Account'**
-  String get createYourAccount;
-
-  /// No description provided for @fullName.
-  ///
-  /// In en, this message translates to:
-  /// **'Full Name'**
-  String get fullName;
-
-  /// No description provided for @fullNameRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Full Name is required'**
-  String get fullNameRequired;
-
-  /// No description provided for @minimumThreeCharacters.
-  ///
-  /// In en, this message translates to:
-  /// **'Minimum 3 characters required'**
-  String get minimumThreeCharacters;
-
-  /// No description provided for @onlyAlphabetsAllowed.
-  ///
-  /// In en, this message translates to:
-  /// **'Only alphabets allowed'**
-  String get onlyAlphabetsAllowed;
-
-  /// No description provided for @dateOfBirth.
-  ///
-  /// In en, this message translates to:
-  /// **'Date of Birth'**
-  String get dateOfBirth;
-
-  /// No description provided for @dateOfBirthRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Date of Birth is required'**
-  String get dateOfBirthRequired;
-
-  /// No description provided for @emailId.
-  ///
-  /// In en, this message translates to:
-  /// **'Email Id'**
-  String get emailId;
-
-  /// No description provided for @constituencyNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Constituency Number'**
-  String get constituencyNumber;
-
-  /// No description provided for @constituencyNumberRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Constituency number required'**
-  String get constituencyNumberRequired;
-
-  /// No description provided for @gender.
-  ///
-  /// In en, this message translates to:
-  /// **'Gender'**
-  String get gender;
-
-  /// No description provided for @genderRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Gender is required'**
-  String get genderRequired;
-
-  /// No description provided for @district.
-  ///
-  /// In en, this message translates to:
-  /// **'District'**
-  String get district;
-
-  /// No description provided for @districtRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'District is required'**
-  String get districtRequired;
-
-  /// No description provided for @alreadyHaveAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Already have an account? '**
-  String get alreadyHaveAccount;
-
-  /// No description provided for @login.
-  ///
-  /// In en, this message translates to:
-  /// **'Login'**
-  String get login;
-
-  /// No description provided for @male.
-  ///
-  /// In en, this message translates to:
-  /// **'Male'**
-  String get male;
-
-  /// No description provided for @female.
-  ///
-  /// In en, this message translates to:
-  /// **'Female'**
-  String get female;
-
-  /// No description provided for @otherGender.
-  ///
-  /// In en, this message translates to:
-  /// **'Other'**
-  String get otherGender;
-
-  /// No description provided for @grievanceDashboard.
-  ///
-  /// In en, this message translates to:
-  /// **'GRIEVANCE DASHBOARD'**
-  String get grievanceDashboard;
-
-  /// No description provided for @latestUpdates.
-  ///
-  /// In en, this message translates to:
-  /// **'LATEST UPDATES'**
-  String get latestUpdates;
-
-  /// No description provided for @raiseGrievance.
-  ///
-  /// In en, this message translates to:
-  /// **'Raise Grievance'**
-  String get raiseGrievance;
-
-  /// No description provided for @deptContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Dept. Contacts'**
-  String get deptContacts;
-
-  /// No description provided for @fileNew.
-  ///
-  /// In en, this message translates to:
-  /// **'File New'**
-  String get fileNew;
-
-  /// No description provided for @myGrievance.
-  ///
-  /// In en, this message translates to:
-  /// **'My Grievance'**
-  String get myGrievance;
-
-  /// No description provided for @constituency.
-  ///
-  /// In en, this message translates to:
-  /// **'Constituency'**
-  String get constituency;
-
-  /// No description provided for @chooseCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'CHOOSE CATEGORY'**
-  String get chooseCategory;
-
-  /// No description provided for @locationDetails.
-  ///
-  /// In en, this message translates to:
-  /// **'LOCATION DETAILS'**
-  String get locationDetails;
-
-  /// No description provided for @ward.
-  ///
-  /// In en, this message translates to:
-  /// **'WARD'**
-  String get ward;
-
-  /// No description provided for @selectWard.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Ward'**
-  String get selectWard;
-
-  /// No description provided for @area.
-  ///
-  /// In en, this message translates to:
-  /// **'AREA'**
-  String get area;
-
-  /// No description provided for @selectArea.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Area'**
-  String get selectArea;
-
-  /// No description provided for @street.
-  ///
-  /// In en, this message translates to:
-  /// **'STREET'**
-  String get street;
-
-  /// No description provided for @selectStreet.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Street'**
-  String get selectStreet;
-
-  /// No description provided for @describe.
-  ///
-  /// In en, this message translates to:
-  /// **'DESCRIBE'**
-  String get describe;
-
-  /// No description provided for @describe_the_issue.
-  ///
-  /// In en, this message translates to:
-  /// **'Describe the issue...'**
-  String get describe_the_issue;
-
-  /// No description provided for @uploadEvidence.
-  ///
-  /// In en, this message translates to:
-  /// **'UPLOAD EVIDENCE'**
-  String get uploadEvidence;
-
-  /// No description provided for @grievance_registered_successfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Grievance registered successfully'**
-  String get grievance_registered_successfully;
-
-  /// No description provided for @select_location_details.
-  ///
-  /// In en, this message translates to:
-  /// **'Please select location details'**
-  String get select_location_details;
-
-  /// No description provided for @please_choose_category.
-  ///
-  /// In en, this message translates to:
-  /// **'Please choose category'**
-  String get please_choose_category;
-
-  /// No description provided for @open.
-  ///
-  /// In en, this message translates to:
-  /// **'OPEN'**
-  String get open;
-
-  /// No description provided for @history.
-  ///
-  /// In en, this message translates to:
-  /// **'HISTORY'**
-  String get history;
-
-  /// No description provided for @resolved.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolved'**
-  String get resolved;
-
-  /// No description provided for @inProgress.
-  ///
-  /// In en, this message translates to:
-  /// **'In Progress'**
-  String get inProgress;
-
-  /// No description provided for @ticket.
-  ///
-  /// In en, this message translates to:
-  /// **'Ticket'**
-  String get ticket;
-
-  /// No description provided for @status.
-  ///
-  /// In en, this message translates to:
-  /// **'Status'**
-  String get status;
-
-  /// No description provided for @latestGrievance.
-  ///
-  /// In en, this message translates to:
-  /// **'Latest grievance'**
-  String get latestGrievance;
-
-  /// No description provided for @unknown.
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown'**
-  String get unknown;
-
-  /// No description provided for @noDashboardDataAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No dashboard data available.'**
-  String get noDashboardDataAvailable;
-
-  /// No description provided for @noGrievanceSubmittedYet.
-  ///
-  /// In en, this message translates to:
-  /// **'No grievance submitted yet.'**
-  String get noGrievanceSubmittedYet;
-
-  /// No description provided for @unableToLoadDashboard.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to load dashboard.'**
-  String get unableToLoadDashboard;
-
-  /// No description provided for @retry.
-  ///
-  /// In en, this message translates to:
-  /// **'Retry'**
-  String get retry;
-
-  /// No description provided for @submitted.
-  ///
-  /// In en, this message translates to:
-  /// **'Submitted'**
-  String get submitted;
-
-  /// No description provided for @forwarded.
-  ///
-  /// In en, this message translates to:
-  /// **'Forwarded'**
-  String get forwarded;
-
-  /// No description provided for @underReview.
-  ///
-  /// In en, this message translates to:
-  /// **'Under Review'**
-  String get underReview;
-
-  /// No description provided for @closed.
-  ///
-  /// In en, this message translates to:
-  /// **'Closed'**
-  String get closed;
-
-  /// No description provided for @rejected.
-  ///
-  /// In en, this message translates to:
-  /// **'Rejected'**
-  String get rejected;
-
-  /// No description provided for @water.
-  ///
-  /// In en, this message translates to:
-  /// **'Water'**
-  String get water;
-
-  /// No description provided for @roads.
-  ///
-  /// In en, this message translates to:
-  /// **'Roads'**
-  String get roads;
-
-  /// No description provided for @electricity.
-  ///
-  /// In en, this message translates to:
-  /// **'Electricity'**
-  String get electricity;
-
-  /// No description provided for @sanitation.
-  ///
-  /// In en, this message translates to:
-  /// **'Sanitation'**
-  String get sanitation;
-
-  /// No description provided for @drainage.
-  ///
-  /// In en, this message translates to:
-  /// **'Drainage'**
-  String get drainage;
-
-  /// No description provided for @garbage.
-  ///
-  /// In en, this message translates to:
-  /// **'Garbage'**
-  String get garbage;
-
-  /// No description provided for @publicServices.
-  ///
-  /// In en, this message translates to:
-  /// **'Public Services'**
-  String get publicServices;
-
-  /// No description provided for @housingWelfare.
-  ///
-  /// In en, this message translates to:
-  /// **'Housing & Welfare'**
-  String get housingWelfare;
-
-  /// No description provided for @educationHealthcare.
-  ///
-  /// In en, this message translates to:
-  /// **'Education & Healthcare'**
-  String get educationHealthcare;
-
-  /// No description provided for @other.
-  ///
-  /// In en, this message translates to:
-  /// **'Other'**
-  String get other;
-
-  /// No description provided for @description.
-  ///
-  /// In en, this message translates to:
-  /// **'Description'**
-  String get description;
-
-  /// No description provided for @noDataAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No data available'**
-  String get noDataAvailable;
-
-  /// No description provided for @attachments.
-  ///
-  /// In en, this message translates to:
-  /// **'Attachments'**
-  String get attachments;
-
-  /// No description provided for @postedOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Posted On'**
-  String get postedOn;
-
-  /// No description provided for @high.
-  ///
-  /// In en, this message translates to:
-  /// **'HIGH'**
-  String get high;
-
-  /// No description provided for @low.
-  ///
-  /// In en, this message translates to:
-  /// **'LOW'**
-  String get low;
-
-  /// No description provided for @medium.
-  ///
-  /// In en, this message translates to:
-  /// **'MEDIUM'**
-  String get medium;
-
-  /// No description provided for @urgent.
-  ///
-  /// In en, this message translates to:
-  /// **'URGENT'**
-  String get urgent;
-
-  /// No description provided for @statusHistories.
-  ///
-  /// In en, this message translates to:
-  /// **'Status & Histories'**
-  String get statusHistories;
-
-  /// No description provided for @callorGetDirections.
-  ///
-  /// In en, this message translates to:
-  /// **'Call or Get Directions'**
-  String get callorGetDirections;
-
-  /// No description provided for @allGrievances.
-  ///
-  /// In en, this message translates to:
-  /// **'All Grievances'**
-  String get allGrievances;
-
-  /// No description provided for @grievanceDetails.
-  ///
-  /// In en, this message translates to:
-  /// **'Grievance Details'**
-  String get grievanceDetails;
-
-  /// No description provided for @grievanceInformation.
-  ///
-  /// In en, this message translates to:
-  /// **'Grievance Information'**
-  String get grievanceInformation;
-
-  /// No description provided for @noGrievancesAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No grievances available'**
-  String get noGrievancesAvailable;
-
-  /// No description provided for @issueCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'Issue Category'**
-  String get issueCategory;
-
-  /// No description provided for @priority.
-  ///
-  /// In en, this message translates to:
-  /// **'Priority'**
-  String get priority;
-
-  /// No description provided for @expectedResolution.
-  ///
-  /// In en, this message translates to:
-  /// **'Expected Resolution'**
-  String get expectedResolution;
-
-  /// No description provided for @progress.
-  ///
-  /// In en, this message translates to:
-  /// **'Progress'**
-  String get progress;
-
-  /// No description provided for @noProgressUpdates.
-  ///
-  /// In en, this message translates to:
-  /// **'No progress updates available.'**
-  String get noProgressUpdates;
-
-  /// No description provided for @progressUpdate.
-  ///
-  /// In en, this message translates to:
-  /// **'Progress Update'**
-  String get progressUpdate;
-
-  /// No description provided for @resolutionClosure.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolution & Closure'**
-  String get resolutionClosure;
-
-  /// No description provided for @expectedBy.
-  ///
-  /// In en, this message translates to:
-  /// **'Expected by {date}'**
-  String expectedBy(String date);
-
-  /// No description provided for @resolvedOnLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolved On'**
-  String get resolvedOnLabel;
-
-  /// No description provided for @resolvedOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolved on {date}'**
-  String resolvedOn(String date);
-
-  /// No description provided for @resolution.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolution'**
-  String get resolution;
-
-  /// No description provided for @resolvedBy.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolved By'**
-  String get resolvedBy;
-
-  /// No description provided for @reopenInformation.
-  ///
-  /// In en, this message translates to:
-  /// **'Reopen Information'**
-  String get reopenInformation;
-
-  /// No description provided for @reopenCount.
-  ///
-  /// In en, this message translates to:
-  /// **'Reopen Count'**
-  String get reopenCount;
-
-  /// No description provided for @reopenedOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Reopened On'**
-  String get reopenedOn;
-
-  /// No description provided for @reason.
-  ///
-  /// In en, this message translates to:
-  /// **'Reason'**
-  String get reason;
-
-  /// No description provided for @rating.
-  ///
-  /// In en, this message translates to:
-  /// **'Rating'**
-  String get rating;
-
-  /// No description provided for @ratedOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Rated on {date}'**
-  String ratedOn(String date);
-
-  /// No description provided for @attachment.
-  ///
-  /// In en, this message translates to:
-  /// **'Attachment'**
-  String get attachment;
-
-  /// No description provided for @unableToLoadGrievance.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to load grievance.'**
-  String get unableToLoadGrievance;
-
-  /// No description provided for @submittedOn.
-  ///
-  /// In en, this message translates to:
-  /// **'Submitted {date}'**
-  String submittedOn(String date);
-
-  /// No description provided for @noDescriptionAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No description available'**
-  String get noDescriptionAvailable;
-
-  /// No description provided for @viewMore.
-  ///
-  /// In en, this message translates to:
-  /// **'View More'**
-  String get viewMore;
-
-  /// No description provided for @allUpdates.
-  ///
-  /// In en, this message translates to:
-  /// **'All Updates'**
-  String get allUpdates;
-
-  /// No description provided for @wrongMobileNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Wrong mobile number?'**
-  String get wrongMobileNumber;
-
-  /// No description provided for @changeMobileNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Change mobile number'**
-  String get changeMobileNumber;
-
-  /// No description provided for @checking.
-  ///
-  /// In en, this message translates to:
-  /// **'Checking...'**
-  String get checking;
-
-  /// No description provided for @checkingInternetConnection.
-  ///
-  /// In en, this message translates to:
-  /// **'Checking internet connection...'**
-  String get checkingInternetConnection;
-
-  /// No description provided for @noInternetConnection.
-  ///
-  /// In en, this message translates to:
-  /// **'No internet connection.'**
-  String get noInternetConnection;
-
-  /// No description provided for @checkingPermissions.
-  ///
-  /// In en, this message translates to:
-  /// **'Checking permissions...'**
-  String get checkingPermissions;
-
-  /// No description provided for @checkingAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Checking account...'**
-  String get checkingAccount;
-
-  /// No description provided for @refreshingSession.
-  ///
-  /// In en, this message translates to:
-  /// **'Refreshing session...'**
-  String get refreshingSession;
-
-  /// No description provided for @noInternetDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Please check your internet connection and try again.'**
-  String get noInternetDescription;
-
-  /// No description provided for @noInternetRetryMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'No internet connection. Please check your network and try again.'**
-  String get noInternetRetryMessage;
-
-  /// No description provided for @unableToPlayVideo.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to play video'**
-  String get unableToPlayVideo;
-
-  /// No description provided for @file.
-  ///
-  /// In en, this message translates to:
-  /// **'File'**
-  String get file;
-
-  /// No description provided for @video.
-  ///
-  /// In en, this message translates to:
-  /// **'Video'**
-  String get video;
-
-  /// No description provided for @image.
-  ///
-  /// In en, this message translates to:
-  /// **'Image'**
-  String get image;
-
-  /// Maximum number of grievance attachments allowed
-  ///
-  /// In en, this message translates to:
-  /// **'You can upload a maximum of {count} files.'**
-  String maximumFilesAllowed(int count);
-
-  /// Maximum size allowed for each attachment
-  ///
-  /// In en, this message translates to:
-  /// **'Each file must be {size} MB or smaller.'**
-  String maximumFileSizeAllowed(int size);
-
-  /// Media upload restrictions
-  ///
-  /// In en, this message translates to:
-  /// **'* Maximum {count} files. Each file must be {size} MB or smaller.'**
-  String mediaUploadNote(int count, int size);
-
-  /// No description provided for @maintenanceTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'App Under Maintenance'**
-  String get maintenanceTitle;
-
-  /// No description provided for @maintenanceDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Our app is currently under maintenance. Please try again later.'**
-  String get maintenanceDescription;
-
-  /// No description provided for @updateRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Update Required'**
-  String get updateRequired;
-
-  /// No description provided for @updateRequiredMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'A new version of the app is available. Please update the app to continue.'**
-  String get updateRequiredMessage;
-
-  /// No description provided for @update.
-  ///
-  /// In en, this message translates to:
-  /// **'Update'**
-  String get update;
-
-  /// No description provided for @logout.
-  ///
-  /// In en, this message translates to:
-  /// **'Logout'**
-  String get logout;
-
-  /// No description provided for @logoutConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to logout?'**
-  String get logoutConfirmation;
-
-  /// No description provided for @cancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
-
-  /// No description provided for @deleteAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Account'**
-  String get deleteAccount;
-
-  /// No description provided for @deleteAccountConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete your account? This action cannot be undone.'**
-  String get deleteAccountConfirmation;
-
-  /// No description provided for @deleteAccountDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Deleting your account will permanently remove your account and associated data.'**
-  String get deleteAccountDescription;
-}
-
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+/// The translations for Tamil (`ta`).
+class AppLocalizationsTa extends AppLocalizations {
+  AppLocalizationsTa([String locale = 'ta']) : super(locale);
 
   @override
-  Future<AppLocalizations> load(Locale locale) {
-    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  String get english => 'ஆங்கிலம்';
+
+  @override
+  String get tamil => 'தமிழ்';
+
+  @override
+  String helloUser(String name) {
+    return 'வணக்கம், $name!';
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'ta'].contains(locale.languageCode);
+  String get home => 'முகப்பு';
 
   @override
-  bool shouldReload(_AppLocalizationsDelegate old) => false;
-}
+  String get grievance => 'குறைகள்';
 
-AppLocalizations lookupAppLocalizations(Locale locale) {
-  // Lookup logic when only language code is specified.
-  switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'ta':
-      return AppLocalizationsTa();
+  @override
+  String get helpDesk => 'உதவி மையம்';
+
+  @override
+  String get submit => 'சமர்ப்பிக்கவும்';
+
+  @override
+  String get welcomeToTvk => 'தவெக உங்களை வரவேற்கிறது!';
+
+  @override
+  String get loginWithMobileNumber => 'மொபைல் எண்ணில் உள்நுழையவும்';
+
+  @override
+  String get mobileNumber => 'மொபைல் எண்';
+
+  @override
+  String get mobileNumberRequired => 'மொபைல் எண்ணை உள்ளிடவும்';
+
+  @override
+  String get invalidMobileNumber => '10 இலக்க மொபைல் எண்ணை உள்ளிடவும்';
+
+  @override
+  String get getOtp => 'OTP பெறுக';
+
+  @override
+  String get dontHaveAccount => 'கணக்கு இல்லையா?';
+
+  @override
+  String get register => 'பதிவு செய்க';
+
+  @override
+  String get enterOtp => 'OTP உள்ளிடவும்';
+
+  @override
+  String get enterOtpSubtitle =>
+      'உங்கள் மொபைல் எண்ணிற்கு அனுப்பப்பட்ட 6 இலக்க OTP-ஐ உள்ளிடவும்';
+
+  @override
+  String get resendOtp => 'OTP மீண்டும் அனுப்பவும்';
+
+  @override
+  String resendOtpIn(Object seconds) {
+    return '$seconds விநாடிகளில் OTP மீண்டும் அனுப்பலாம்';
   }
 
-  throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
-  );
+  @override
+  String get createYourAccount => 'உங்கள் கணக்கை உருவாக்கவும்';
+
+  @override
+  String get fullName => 'முழுப் பெயர்';
+
+  @override
+  String get fullNameRequired => 'முழுப் பெயர் அவசியமானது';
+
+  @override
+  String get minimumThreeCharacters =>
+      'குறைந்தது 3 எழுத்துக்கள் இருக்க வேண்டும்';
+
+  @override
+  String get onlyAlphabetsAllowed => 'எழுத்துக்கள் மட்டுமே அனுமதிக்கப்படும்';
+
+  @override
+  String get dateOfBirth => 'பிறந்த தேதி';
+
+  @override
+  String get dateOfBirthRequired => 'பிறந்த தேதி அவசியமானது';
+
+  @override
+  String get emailId => 'மின்னஞ்சல் முகவரி';
+
+  @override
+  String get constituencyNumber => 'தொகுதி எண்';
+
+  @override
+  String get constituencyNumberRequired => 'தொகுதி எண் அவசியமானது';
+
+  @override
+  String get gender => 'பாலினம்';
+
+  @override
+  String get genderRequired => 'பாலினம் அவசியமானது';
+
+  @override
+  String get district => 'மாவட்டம்';
+
+  @override
+  String get districtRequired => 'மாவட்டம் அவசியமானது';
+
+  @override
+  String get alreadyHaveAccount => 'ஏற்கனவே கணக்கு உள்ளதா?';
+
+  @override
+  String get login => 'உள்நுழைக';
+
+  @override
+  String get male => 'ஆண்';
+
+  @override
+  String get female => 'பெண்';
+
+  @override
+  String get otherGender => 'மற்றவை';
+
+  @override
+  String get grievanceDashboard => 'குறைதீர்ப்பு முகப்பு';
+
+  @override
+  String get latestUpdates => 'சமீபத்திய புதுப்பிப்புகள்';
+
+  @override
+  String get raiseGrievance => 'குறை பதிவு';
+
+  @override
+  String get deptContacts => 'துறை தொடர்புகள்';
+
+  @override
+  String get fileNew => 'புதிய குறை';
+
+  @override
+  String get myGrievance => 'எனது குறைகள்';
+
+  @override
+  String get constituency => 'தொகுதி';
+
+  @override
+  String get chooseCategory => 'பிரிவைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get locationDetails => 'இட விவரங்கள்';
+
+  @override
+  String get ward => 'வார்டு';
+
+  @override
+  String get selectWard => 'வார்டைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get area => 'பகுதி';
+
+  @override
+  String get selectArea => 'பகுதியைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get street => 'தெரு';
+
+  @override
+  String get selectStreet => 'தெருவைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get describe => 'விவரம்';
+
+  @override
+  String get describe_the_issue => 'சிக்கலை விவரிக்கவும்...';
+
+  @override
+  String get uploadEvidence => 'சான்றைப் பதிவேற்றவும்';
+
+  @override
+  String get grievance_registered_successfully =>
+      'குறை வெற்றிகரமாகப் பதிவு செய்யப்பட்டது';
+
+  @override
+  String get select_location_details =>
+      'தயவுசெய்து இட விவரங்களைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get please_choose_category => 'தயவுசெய்து பிரிவைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get open => 'செயலில் உள்ளவை';
+
+  @override
+  String get history => 'முந்தையவை';
+
+  @override
+  String get resolved => 'தீர்க்கப்பட்டது';
+
+  @override
+  String get inProgress => 'செயல்பாட்டில்';
+
+  @override
+  String get ticket => 'புகார்';
+
+  @override
+  String get status => 'நிலை';
+
+  @override
+  String get latestGrievance => 'சமீபத்திய புகார்';
+
+  @override
+  String get unknown => 'தெரியவில்லை';
+
+  @override
+  String get noDashboardDataAvailable =>
+      'புகார் பலகை தரவு எதுவும் கிடைக்கவில்லை.';
+
+  @override
+  String get noGrievanceSubmittedYet =>
+      'இதுவரை எந்த புகாரும் சமர்ப்பிக்கப்படவில்லை.';
+
+  @override
+  String get unableToLoadDashboard => 'புகார் பலகையை ஏற்ற முடியவில்லை.';
+
+  @override
+  String get retry => 'மீண்டும் முயற்சிக்கவும்';
+
+  @override
+  String get submitted => 'சமர்ப்பிக்கப்பட்டது';
+
+  @override
+  String get forwarded => 'முன்னனுப்பப்பட்டது';
+
+  @override
+  String get underReview => 'மதிப்பாய்வில் உள்ளது';
+
+  @override
+  String get closed => 'மூடப்பட்டது';
+
+  @override
+  String get rejected => 'நிராகரிக்கப்பட்டது';
+
+  @override
+  String get water => 'குடிநீர்';
+
+  @override
+  String get roads => 'சாலைகள்';
+
+  @override
+  String get electricity => 'மின்சாரம்';
+
+  @override
+  String get sanitation => 'சுகாதாரம்';
+
+  @override
+  String get drainage => 'கழிவுநீர்';
+
+  @override
+  String get garbage => 'திடக்கழிவு';
+
+  @override
+  String get publicServices => 'பொது சேவைகள்';
+
+  @override
+  String get housingWelfare => 'வீடு மற்றும் நலத்திட்டங்கள்';
+
+  @override
+  String get educationHealthcare => 'கல்வி மற்றும் சுகாதாரம்';
+
+  @override
+  String get other => 'மற்றவை';
+
+  @override
+  String get description => 'விளக்கம்';
+
+  @override
+  String get noDataAvailable => 'தரவு எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get attachments => 'இணைப்புகள்';
+
+  @override
+  String get postedOn => 'வெளியிடப்பட்ட தேதி';
+
+  @override
+  String get high => 'அதிகம்';
+
+  @override
+  String get low => 'குறைவு';
+
+  @override
+  String get medium => 'நடுத்தரம்';
+
+  @override
+  String get urgent => 'அவசரம்';
+
+  @override
+  String get statusHistories => 'நிலை மற்றும் வரலாறு';
+
+  @override
+  String get callorGetDirections => 'அழைக்கவும் அல்லது வழியைப் பெறவும்';
+
+  @override
+  String get allGrievances => 'அனைத்து புகார்கள்';
+
+  @override
+  String get grievanceDetails => 'குறை விவரங்கள்';
+
+  @override
+  String get grievanceInformation => 'குறை தொடர்பான தகவல்கள்';
+
+  @override
+  String get noGrievancesAvailable => 'குறைகள் எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get issueCategory => 'குறை வகை';
+
+  @override
+  String get priority => 'முன்னுரிமை';
+
+  @override
+  String get expectedResolution => 'எதிர்பார்க்கப்படும் தீர்வு';
+
+  @override
+  String get progress => 'முன்னேற்றம்';
+
+  @override
+  String get noProgressUpdates => 'முன்னேற்றப் புதுப்பிப்புகள் எதுவும் இல்லை';
+
+  @override
+  String get progressUpdate => 'முன்னேற்றப் புதுப்பிப்பு';
+
+  @override
+  String get resolutionClosure => 'தீர்வு மற்றும் நிறைவு';
+
+  @override
+  String expectedBy(String date) {
+    return '$dateக்குள் தீர்வு எதிர்பார்க்கப்படுகிறது';
+  }
+
+  @override
+  String get resolvedOnLabel => 'தீர்வு தேதி';
+
+  @override
+  String resolvedOn(String date) {
+    return '$date அன்று தீர்க்கப்பட்டது';
+  }
+
+  @override
+  String get resolution => 'தீர்வு';
+
+  @override
+  String get resolvedBy => 'தீர்வு செய்தவர்';
+
+  @override
+  String get reopenInformation => 'மீண்டும் திறந்த தகவல்கள்';
+
+  @override
+  String get reopenCount => 'மீண்டும் திறந்த எண்ணிக்கை';
+
+  @override
+  String get reopenedOn => 'மீண்டும் திறந்த தேதி';
+
+  @override
+  String get reason => 'காரணம்';
+
+  @override
+  String get rating => 'மதிப்பீடு';
+
+  @override
+  String ratedOn(String date) {
+    return '$date அன்று மதிப்பீடு செய்யப்பட்டது';
+  }
+
+  @override
+  String get attachment => 'இணைப்பு';
+
+  @override
+  String get unableToLoadGrievance => 'குறையை ஏற்ற முடியவில்லை.';
+
+  @override
+  String submittedOn(String date) {
+    return '$date அன்று சமர்ப்பிக்கப்பட்டது';
+  }
+
+  @override
+  String get noDescriptionAvailable => 'விளக்கம் எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get viewMore => 'மேலும்';
+
+  @override
+  String get allUpdates => 'அனைத்து புதுப்பிப்புகள்';
+
+  @override
+  String get changeMobileNumber => 'மொபைல் எண்ணை மாற்ற';
+
+  @override
+  String get checking => 'சரிபார்க்கிறது...';
+
+  @override
+  String get checkingInternetConnection => 'இணைய இணைப்பை சரிபார்க்கிறது...';
+
+  @override
+  String get noInternetConnection => 'இணைய இணைப்பு இல்லை.';
+
+  @override
+  String get checkingPermissions => 'அனுமதிகளை சரிபார்க்கிறது...';
+
+  @override
+  String get checkingAccount => 'கணக்கை சரிபார்க்கிறது...';
+
+  @override
+  String get refreshingSession => 'அமர்வை புதுப்பிக்கிறது...';
+
+  @override
+  String get noInternetDescription =>
+      'தயவுசெய்து உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
+
+  @override
+  String get noInternetRetryMessage =>
+      'இணைய இணைப்பு இல்லை. உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.';
+
+  @override
+  String get unableToPlayVideo => 'வீடியோவை இயக்க முடியவில்லை';
+
+  @override
+  String get file => 'கோப்பு';
+
+  @override
+  String get video => 'வீடியோ';
+
+  @override
+  String get image => 'படம்';
+
+  @override
+  String maximumFilesAllowed(int count) {
+    return 'அதிகபட்சம் $count கோப்புகளை மட்டுமே பதிவேற்ற முடியும்.';
+  }
+
+  @override
+  String maximumFileSizeAllowed(int size) {
+    return 'ஒவ்வொரு கோப்பின் அளவும் $size MB அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்.';
+  }
+
+  @override
+  String mediaUploadNote(int count, int size) {
+    return '* அதிகபட்சம் $count கோப்புகளை பதிவேற்றலாம். ஒவ்வொரு கோப்பும் $size MB அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்.';
+  }
+
+  @override
+  String get maintenanceTitle => 'செயலி பராமரிப்பில் உள்ளது';
+
+  @override
+  String get maintenanceDescription =>
+      'எங்கள் செயலி தற்போது பராமரிப்பில் உள்ளது. தயவுசெய்து சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.';
+
+  @override
+  String get updateRequired => 'புதுப்பிப்பு தேவை';
+
+  @override
+  String get updateRequiredMessage =>
+      'பயன்பாட்டின் புதிய பதிப்பு கிடைக்கிறது. தொடர, பயன்பாட்டைப் புதுப்பிக்கவும்.';
+
+  @override
+  String get update => 'புதுப்பிக்கவும்';
+
+  @override
+  String get logout => 'வெளியேறு';
+
+  @override
+  String get logoutConfirmation =>
+      'நீங்கள் நிச்சயமாக வெளியேற விரும்புகிறீர்களா?';
+
+  @override
+  String get cancel => 'ரத்து செய்க';
+
+  @override
+  String get deleteAccount => 'கணக்கை நீக்கவும்';
+
+  @override
+  String get deleteAccountConfirmation =>
+      'உங்கள் கணக்கை நீக்க விரும்புகிறீர்களா? இந்த செயல்பாட்டை மாற்ற முடியாது.';
+
+  @override
+  String get deleteAccountDescription =>
+      'உங்கள் கணக்கை நீக்குவதன் மூலம் உங்கள் கணக்கும் தொடர்புடைய தரவுகளும் நிரந்தரமாக நீக்கப்படும்.';
 }
