@@ -395,6 +395,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allUpdates => 'All Updates';
 
   @override
+  String get wrongMobileNumber => 'Wrong mobile number?';
+
+  @override
   String get changeMobileNumber => 'Change mobile number';
 
   @override
