@@ -146,6 +146,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myGrievance => 'My Grievance';
 
   @override
+  String get no_grievances_found => 'No grievances found.';
+
+  @override
   String get constituency => 'Constituency';
 
   @override
