@@ -147,6 +147,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get myGrievance => 'எனது குறைகள்';
 
   @override
+  String get no_grievances_found => 'குறைகள் எதுவும் கண்டறியப்படவில்லை.';
+
+  @override
   String get constituency => 'தொகுதி';
 
   @override
