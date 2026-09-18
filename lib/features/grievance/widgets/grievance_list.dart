@@ -76,8 +76,8 @@ class GrievanceList extends StatelessWidget {
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         padding: const EdgeInsets.all(20),
-        child: const Center(
-          child: Text('No grievances found.', textAlign: TextAlign.center),
+        child: Center(
+          child: Text(l10n.no_grievances_found, textAlign: TextAlign.center),
         ),
       );
     }
