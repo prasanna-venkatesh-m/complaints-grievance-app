@@ -146,9 +146,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myGrievance => 'My Grievance';
 
   @override
-  String get no_grievances_found => 'No grievances found.';
-
-  @override
   String get constituency => 'Constituency';
 
   @override
@@ -256,12 +253,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sanitation => 'Sanitation';
-
-  @override
-  String get drainage => 'Drainage';
-
-  @override
-  String get garbage => 'Garbage';
 
   @override
   String get publicServices => 'Public Services';
@@ -398,9 +389,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allUpdates => 'All Updates';
 
   @override
-  String get wrongMobileNumber => 'Wrong mobile number?';
-
-  @override
   String get changeMobileNumber => 'Change mobile number';
 
   @override
@@ -472,24 +460,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get update => 'Update';
-
-  @override
-  String get logout => 'Logout';
-
-  @override
-  String get logoutConfirmation => 'Are you sure you want to logout?';
-
-  @override
-  String get cancel => 'Cancel';
-
-  @override
-  String get deleteAccount => 'Delete Account';
-
-  @override
-  String get deleteAccountConfirmation =>
-      'Are you sure you want to delete your account? This action cannot be undone.';
-
-  @override
-  String get deleteAccountDescription =>
-      'Deleting your account will permanently remove your account and associated data.';
 }
