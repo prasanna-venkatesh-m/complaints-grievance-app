@@ -67,7 +67,6 @@
 
   "fileNew": "File New",
   "myGrievance": "My Grievance",
-  "no_grievances_found": "No grievances found.",
 
   "constituency":"Constituency",
   "chooseCategory": "CHOOSE CATEGORY",
@@ -109,8 +108,6 @@
   "roads": "Roads",
   "electricity": "Electricity",
   "sanitation": "Sanitation",
-  "drainage": "Drainage",
-  "garbage": "Garbage",
   "publicServices": "Public Services",
   "housingWelfare": "Housing & Welfare",
   "educationHealthcare": "Education & Healthcare",
@@ -186,7 +183,6 @@
   "noDescriptionAvailable": "No description available",
   "viewMore":"View More",
   "allUpdates":"All Updates",
-  "wrongMobileNumber": "Wrong mobile number?",
   "changeMobileNumber":"Change mobile number",
   "checking": "Checking...",
   "checkingInternetConnection": "Checking internet connection...",
@@ -236,11 +232,5 @@
 "maintenanceDescription": "Our app is currently under maintenance. Please try again later.",
 "updateRequired": "Update Required",
 "updateRequiredMessage": "A new version of the app is available. Please update the app to continue.",
-"update": "Update",
-"logout": "Logout",
-"logoutConfirmation": "Are you sure you want to logout?",
-"cancel": "Cancel",
-"deleteAccount": "Delete Account",
-"deleteAccountConfirmation": "Are you sure you want to delete your account? This action cannot be undone.",
-"deleteAccountDescription": "Deleting your account will permanently remove your account and associated data."
+"update": "Update"
 }
